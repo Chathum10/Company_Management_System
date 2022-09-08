@@ -24,7 +24,7 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
 
 //Employee Management Function Routes
-
+app.use("/api/employee", require("./routes/employee"));
 
 //Project Management Function Routes
 
