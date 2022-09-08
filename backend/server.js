@@ -20,8 +20,21 @@ app.use(cors());
 // Body parser
 app.use(express.json());
 
-// Routes
+// import Routes
 app.use("/api/auth", require("./routes/auth"));
+
+//Employee Management Function Routes
+
+
+//Project Management Function Routes
+
+
+//Department Management Function Routes
+
+
+//Financial Management Function Routes
+
+
 
 // Serve static assets (build folder) if in production
 if (process.env.NODE_ENV === 'production') {
