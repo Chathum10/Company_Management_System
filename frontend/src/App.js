@@ -17,8 +17,8 @@ import Employee from "./Components/Functions/EmployeeManagement/Employee";
 
 
 //Project Management
-
-
+import CreateProjectData from "./Components/Functions/ProjectManagement/CreateProjectData"
+import ProjectData from "./Components/Functions/ProjectManagement/ProjectData";
 
 
 //Department Management
@@ -36,13 +36,17 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/register" component={Register} />
+        <Route path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/" component={Home} />
 
         <Route path="/CreateEmpData" component={CreateEmpData} />
         <Route path="/EmpData" component={EmpData} />
         <Route path="/Employee/:id" component={Employee} />
+
+        <Route path="/CreateProjectData" component={CreateProjectData} />
+        <Route path="/ProjectData" component={ProjectData} />
+
         
       </Switch>
       

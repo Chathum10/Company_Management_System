@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { MDBIcon } from 'mdb-react-ui-kit';
 
-export default class EmpData extends Component {
+export default class ProjectData extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      employee: []
+      projects: []
     };
 
   }
@@ -18,13 +18,13 @@ export default class EmpData extends Component {
   }
 
   retrievePosts() {
-    axios.get("/employee").then(res => {
+    axios.get("/projects").then(res => {
       if (res.data.success) {
         this.setState({
-          employee: res.data.existingPosts
+          projects: res.data.existingPosts
         });
 
-        console.log(this.state.employee);
+        console.log(this.state.projects);
       }
 
 
@@ -32,15 +32,15 @@ export default class EmpData extends Component {
   }
 
 
-  filterData(employee, searchKey) {
+  filterData(projects, searchKey) {
 
-    const result = employee.filter((post) =>
-      post.empId.toLowerCase().includes(searchKey) ||
-      post.dept.toLowerCase().includes(searchKey)
+    const result = projects.filter((post) =>
+      post.projectId.toLowerCase().includes(searchKey) ||
+      post.pLevel.toLowerCase().includes(searchKey)
 
     )
 
-    this.setState({ employee: result })
+    this.setState({ projects: result })
 
   }
 
@@ -49,7 +49,7 @@ export default class EmpData extends Component {
 
     const searchKey = e.currentTarget.value;
 
-    axios.get("/employee").then(res => {
+    axios.get("/projects").then(res => {
       if (res.data.success) {
 
         this.filterData(res.data.existingPosts, searchKey)
@@ -74,7 +74,7 @@ export default class EmpData extends Component {
         </div>
         <div id="containerJoin">
             <center>
-              <h1 className="gifJoin">All Employees</h1>
+              <h1 className="gifJoin">All projects</h1>
 
             </center>
           </div>
@@ -82,55 +82,55 @@ export default class EmpData extends Component {
         <div >
           <br />
 
-          <h3><span class="badge bg-info text-dark opacity-90 ">Employee Information</span></h3>
+          <h3><span class="badge bg-info text-dark opacity-90 ">projects Information</span></h3>
           <table class="table table-bordered " >
             <thead class="table-info">
               <tr>
-                <th scope="col">EMP ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Personal Information</th>
-                <th scope="col">Employment</th>
-                <th scope="col">Performance</th>
+                <th scope="col">Project ID</th>
+                <th scope="col">Client Information</th>
+                <th scope="col">Project Information</th>
+                <th scope="col">Progress</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
-              {this.state.employee.map((employee, index) => (
+              {this.state.projects.map((projects, index) => (
                 <tr>
                   <td class="table-light">
-                    <a href={`/employee/${employee._id}`} style={{ textDecoration: 'none' }}>
-                      {employee.empId}
+                    <a href={`/projects/${projects._id}`} style={{ textDecoration: 'none' }}>
+                      {projects.projectId}
                     </a>
                   </td>
-                  <td class="table-light">{employee.name}</td>
                   <td class="table-light">
-                      {employee.nic}<br />
-                      {employee.gender}<br />
-                      {employee.contactNo}<br />
-                      {employee.email}<br />
+                      {projects.cName}<br />
+                      {projects.email}<br />
+                      {projects.contactNo}<br />
                   </td>
                   <td class="table-light">
-                      {employee.joinDate}<br />
-                      {employee.dueDate}<br />
-                      {employee.dept}<br />
-                      {employee.designation}<br />
+                      {projects.description}<br />
+                      {projects.dept}<br />
+                      {projects.pLevel}<br />
+                      {projects.sDate}<br />
+                      {projects.eDate}<br />
+                      {projects.remarks}<br />
+                      
                   </td>
 
                   <td class="table-light">
-                  {employee.performance}<br />
-                    <a className="btn btn-success" href={`/#/${employee._id}`}>
-                      &nbsp;Add This Month
+                  {projects.progress}<br />
+                    <a className="btn btn-success" href={`/#/${projects._id}`}>
+                      &nbsp;Add Progress
                     </a>
                 </td>
 
 
                   <td class="table-light">
-                    <a className="btn btn-warning" href={`/#/${employee._id}`}>
+                    <a className="btn btn-warning" href={`/#/${projects._id}`}>
                      &nbsp;Edit
                     </a>
                     &nbsp;
                    
-                    <a className="btn btn-danger" href="#" onClick={() => window.confirm("Are You Sure You Want To Delete This User Profile ?") && this.onDelete(employee._id)}>
+                    <a className="btn btn-danger" href="#" onClick={() => window.confirm("Are You Sure You Want To Delete This User Profile ?") && this.onDelete(projects._id)}>
                     &nbsp;Delete
                     </a>
                   </td>
@@ -149,8 +149,8 @@ export default class EmpData extends Component {
 
           <div>
             <center>
-              <a className="btn btn-warning text-dark " href="/createEmpData" >
-                <MDBIcon fas icon="user-plus" size='2x' />&nbsp;<b>Add New Employee Information</b>
+              <a className="btn btn-warning text-dark " href="/CreateProjectData" >
+                <MDBIcon fas icon="user-plus" size='2x' />&nbsp;<b>Add New projects Information</b>
               </a>
             </center>
           </div>
