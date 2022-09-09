@@ -18,7 +18,7 @@ const employeeSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    dob:{
+    email:{
         type:String,
         required:true
     },
