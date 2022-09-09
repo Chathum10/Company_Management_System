@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
 const cors = require("cors");
+const bodyParser = require('body-parser');
 const path = require('path')
 
 // Connect DB
@@ -17,7 +18,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use(cors());
-// Body parser
+app.use(bodyParser.json());
 app.use(express.json());
 
 // import Routes
