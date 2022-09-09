@@ -30,7 +30,7 @@ app.use("/api/employee", require("./routes/employee"));
 app.use("/api/projects", require("./routes/projects"));
 
 //Department Management Function Routes
-
+app.use("/api/departments", require("./routes/departments"));
 
 //Financial Management Function Routes
 
