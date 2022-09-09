@@ -11,8 +11,8 @@ import Home from "./Home";
 
 
 //Employee Management
-
-
+import CreateEmpData from "./Components/Functions/EmployeeManagement/CreateEmpData";
+import EmpData from "./Components/Functions/EmployeeManagement/EmpData";
 
 
 //Project Management
@@ -38,7 +38,11 @@ const App = () => {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/" component={Home} />
+
+        <Route path="/CreateEmpData" component={CreateEmpData} />
+        <Route path="/EmpData" component={EmpData} />
       </Switch>
+      
     </BrowserRouter>
   );
 };
