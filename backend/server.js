@@ -3,8 +3,8 @@ const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
 const cors = require("cors");
-const bodyParser = require('body-parser');
-const path = require('path')
+const bodyParser = require("body-parser");
+const path = require("path");
 
 // Connect DB
 mongoose
@@ -25,29 +25,30 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
 
 //Employee Management Function Routes
-const employRoutes = require('./routes/employee');
+const employRoutes = require("./routes/employee");
 
 //Project Management Function Routes
-const projectsRoutes = require('./routes/projects');
+const projectsRoutes = require("./routes/projects");
 
 //Department Management Function Routes
-const departmentsRoutes = require('./routes/departments');
+const departmentsRoutes = require("./routes/departments");
 
 //Financial Management Function Routes
-
+const financialRoutes = require("./routes/financial");
 
 //route middleware
 app.use(employRoutes);
 app.use(projectsRoutes);
 app.use(departmentsRoutes);
+app.use(financialRoutes);
 
 // Serve static assets (build folder) if in production
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   // Set static folder
-  app.use(express.static('client/build'));
-// get anything, load index.html file
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  app.use(express.static("client/build"));
+  // get anything, load index.html file
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
 
