@@ -25,17 +25,21 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth"));
 
 //Employee Management Function Routes
-app.use("/api/employee", require("./routes/employee"));
+const employRoutes = require('./routes/employee');
 
 //Project Management Function Routes
-app.use("/api/projects", require("./routes/projects"));
+const projectsRoutes = require('./routes/projects');
 
 //Department Management Function Routes
-app.use("/api/departments", require("./routes/departments"));
+const departmentsRoutes = require('./routes/departments');
 
 //Financial Management Function Routes
 
 
+//route middleware
+app.use(employRoutes);
+app.use(projectsRoutes);
+app.use(departmentsRoutes);
 
 // Serve static assets (build folder) if in production
 if (process.env.NODE_ENV === 'production') {

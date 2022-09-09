@@ -53,7 +53,7 @@ const employeeSchema = new mongoose.Schema({
     overallmonths:{
         type:String,
     },
-    performances:{
+    performance:{
         type:String,
         default: "Not Assigned",
     },

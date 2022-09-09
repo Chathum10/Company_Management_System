@@ -81,7 +81,7 @@ const Home = (props) => {
                   
                 </li>
                 <li class="has-subnav">
-                    <a href="/CreateEmpData">
+                    <a href="/EmpData">
                         <i class="fa fa-laptop fa-2x"></i>
                         <span class="nav-text">
                             Employee
@@ -90,7 +90,7 @@ const Home = (props) => {
                     
                 </li>
                 <li class="has-subnav">
-                    <a href="#">
+                    <a href="/DepData">
                        <i class="fa fa-list fa-2x"></i>
                         <span class="nav-text">
                             Department
@@ -99,7 +99,7 @@ const Home = (props) => {
                     
                 </li>
                 <li class="has-subnav">
-                    <a href="#">
+                    <a href="/ProjectData">
                        <i class="fa fa-folder-open fa-2x"></i>
                         <span class="nav-text">
                             Projects
