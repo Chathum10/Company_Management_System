@@ -27,7 +27,7 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/employee", require("./routes/employee"));
 
 //Project Management Function Routes
-
+app.use("/api/projects", require("./routes/projects"));
 
 //Department Management Function Routes
 
