@@ -23,7 +23,7 @@ const departmentsSchema = new mongoose.Schema({
         required:true
 
     },
-    hemail:{
+    hEmail:{
         type:String,
         required:true
     },

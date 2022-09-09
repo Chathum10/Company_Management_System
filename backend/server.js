@@ -31,7 +31,7 @@ const employRoutes = require('./routes/employee');
 const projectsRoutes = require('./routes/projects');
 
 //Department Management Function Routes
-app.use("/api/departments", require("./routes/departments"));
+const departmentsRoutes = require('./routes/departments');
 
 //Financial Management Function Routes
 
@@ -39,6 +39,7 @@ app.use("/api/departments", require("./routes/departments"));
 //route middleware
 app.use(employRoutes);
 app.use(projectsRoutes);
+app.use(departmentsRoutes);
 
 // Serve static assets (build folder) if in production
 if (process.env.NODE_ENV === 'production') {

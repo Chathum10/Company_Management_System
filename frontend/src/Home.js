@@ -90,7 +90,7 @@ const Home = (props) => {
                     
                 </li>
                 <li class="has-subnav">
-                    <a href="#">
+                    <a href="/DepData">
                        <i class="fa fa-list fa-2x"></i>
                         <span class="nav-text">
                             Department

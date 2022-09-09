@@ -22,7 +22,8 @@ import ProjectData from "./Components/Functions/ProjectManagement/ProjectData";
 
 
 //Department Management
-
+import CreateDeptData from "./Components/Functions/DepartmentManagement/CreateDeptData";
+import DeptData from "./Components/Functions/DepartmentManagement/DeptData";
 
 
 
@@ -46,6 +47,9 @@ const App = () => {
 
         <Route path="/CreateProjectData" component={CreateProjectData} />
         <Route path="/ProjectData" component={ProjectData} />
+
+        <Route path="/CreateDeptData" component={CreateDeptData} />
+        <Route path="/DeptData" component={DeptData} />
 
         
       </Switch>
