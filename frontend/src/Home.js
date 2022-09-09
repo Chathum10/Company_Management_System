@@ -108,7 +108,7 @@ const Home = (props) => {
                    
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/FinancialDetails">
                         <i class="fa fa-bar-chart-o fa-2x"></i>
                         <span class="nav-text">
                             Financial 

@@ -120,7 +120,7 @@ export default class FinancialDetails extends Component {
         </table>
 
         <button className="btn btn-success">
-          <a href="/add" style={{ textDecoration: "none", color: "white" }}>
+          <a href="/AddFinancialDetails" style={{ textDecoration: "none", color: "white" }}>
             Create This Month Financial Statement
           </a>
         </button>

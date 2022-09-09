@@ -28,7 +28,8 @@ import DeptData from "./Components/Functions/DepartmentManagement/DeptData";
 
 
 //Financial Management
-
+import AddFinancialDetails from "./Components/Functions/FinancialManagement/AddFinancialDetails";
+import FinancialDetails from "./Components/Functions/FinancialManagement/FinancialDetails";
 
 
 
@@ -50,6 +51,9 @@ const App = () => {
 
         <Route path="/CreateDeptData" component={CreateDeptData} />
         <Route path="/DeptData" component={DeptData} />
+
+        <Route path="/AddFinancialDetails" component={AddFinancialDetails} />
+        <Route path="/FinancialDetails" component={FinancialDetails} />
 
         
       </Switch>
