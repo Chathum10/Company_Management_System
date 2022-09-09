@@ -81,7 +81,7 @@ const Home = (props) => {
                   
                 </li>
                 <li class="has-subnav">
-                    <a href="/CreateEmpData">
+                    <a href="/EmpData">
                         <i class="fa fa-laptop fa-2x"></i>
                         <span class="nav-text">
                             Employee

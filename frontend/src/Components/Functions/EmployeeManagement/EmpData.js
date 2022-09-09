@@ -74,7 +74,7 @@ export default class EmpData extends Component {
         </div>
         <div id="containerJoin">
             <center>
-              <h1 className="gifJoin">All User Profiles</h1>
+              <h1 className="gifJoin">All Employees</h1>
 
             </center>
           </div>
@@ -96,8 +96,7 @@ export default class EmpData extends Component {
             </thead>
             <tbody>
               {this.state.employee.map((employee, index) => (
-                <tr key={index}>
-                  <th class="table-light" scope="row">100{index + 1}</th>
+                <tr>
                   <td class="table-light">
                     <a href={`/employee/${employee._id}`} style={{ textDecoration: 'none' }}>
                       {employee.empId}
@@ -105,33 +104,33 @@ export default class EmpData extends Component {
                   </td>
                   <td class="table-light">{employee.name}</td>
                   <td class="table-light">
-                      {employee.nic}
-                      {employee.gender}
-                      {employee.contactNo}
-                      {employee.email}
+                      {employee.nic}<br />
+                      {employee.gender}<br />
+                      {employee.contactNo}<br />
+                      {employee.email}<br />
                   </td>
                   <td class="table-light">
-                      {employee.joinDate}
-                      {employee.dueDate}
-                      {employee.dept}
-                      {employee.designation}
+                      {employee.joinDate}<br />
+                      {employee.dueDate}<br />
+                      {employee.dept}<br />
+                      {employee.designation}<br />
                   </td>
 
                   <td class="table-light">
-                    <a className="btn btn-warning" href={`/#/${employee._id}`}>
-                      <i className="fas fa-edit"></i>&nbsp;Performance
+                    <a className="btn btn-success" href={`/#/${employee._id}`}>
+                      &nbsp;Add This Month
                     </a>
                 </td>
 
 
                   <td class="table-light">
                     <a className="btn btn-warning" href={`/#/${employee._id}`}>
-                      <i className="fas fa-edit"></i>&nbsp;Edit
+                     &nbsp;Edit
                     </a>
                     &nbsp;
                    
                     <a className="btn btn-danger" href="#" onClick={() => window.confirm("Are You Sure You Want To Delete This User Profile ?") && this.onDelete(employee._id)}>
-                      <i className="far fa-trash-alt"></i>&nbsp;Delete
+                    &nbsp;Delete
                     </a>
                   </td>
 
@@ -150,7 +149,7 @@ export default class EmpData extends Component {
           <div>
             <center>
               <a className="btn btn-warning text-dark " href="/createEmpData" >
-                <MDBIcon fas icon="user-plus" size='2x' />&nbsp;<b>Create a New User Profile</b>
+                <MDBIcon fas icon="user-plus" size='2x' />&nbsp;<b>Add New Employee Information</b>
               </a>
             </center>
           </div>
