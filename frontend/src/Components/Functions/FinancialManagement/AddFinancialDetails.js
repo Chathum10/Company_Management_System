@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { MDBCard } from "mdb-react-ui-kit";
 
-const priceRegex = RegExp(/^[\d]+[\.][\d]{2}$/);
+const priceRegex = RegExp(/^\d*\.?\d*$/);
 
 const formValid = (formErrors) => {
   let valid = true;
@@ -18,7 +18,6 @@ export default class AddFinancialDetails extends Component {
     super(props);
     this.state = {
       fId: "",
-
       totalIncome: "",
       totalOutcome: "",
       money: "",
@@ -124,7 +123,6 @@ export default class AddFinancialDetails extends Component {
     if (formValid(this.state.formErrors)) {
       const {
         fId,
-
         totalIncome,
         totalOutcome,
         money,
@@ -144,7 +142,6 @@ export default class AddFinancialDetails extends Component {
 
       const data = {
         fId: fId,
-
         totalIncome: totalIncome,
         totalOutcome: totalOutcome,
         money: money,
@@ -164,14 +161,13 @@ export default class AddFinancialDetails extends Component {
 
       console.log(data);
 
-      axios.post("http://localhost:8001/financial/save", data).then((res) => {
-        let path = "/financial";
+      axios.post("/financial/save", data).then((res) => {
+        let path = "/FinancialDetails";
         if (res.data.success) {
           alert("Added financial details Successfully!");
           this.props.history.push(path);
           this.setState({
             fId: "",
-
             totalIncome: "",
             totalOutcome: "",
             money: "",
@@ -200,7 +196,6 @@ export default class AddFinancialDetails extends Component {
 
     const {
       fId,
-
       totalIncome,
       totalOutcome,
       money,
@@ -230,7 +225,6 @@ export default class AddFinancialDetails extends Component {
 
     const {
       fId,
-
       totalIncome,
       totalOutcome,
       money,
@@ -263,7 +257,6 @@ export default class AddFinancialDetails extends Component {
 
     const {
       fId,
-
       totalIncome,
       totalOutcome,
       money,
@@ -295,7 +288,6 @@ export default class AddFinancialDetails extends Component {
     e.preventDefault();
     const {
       fId,
-
       totalIncome,
       totalOutcome,
       money,
@@ -326,7 +318,6 @@ export default class AddFinancialDetails extends Component {
 
     const {
       fId,
-
       totalIncome,
       totalOutcome,
       money,
@@ -351,7 +342,6 @@ export default class AddFinancialDetails extends Component {
 
     const {
       fId,
-
       totalIncome,
       totalOutcome,
       money,
@@ -371,7 +361,6 @@ export default class AddFinancialDetails extends Component {
 
     const data = {
       fId: fId,
-
       totalIncome: totalIncome,
       totalOutcome: totalOutcome,
       money: money,
@@ -391,11 +380,7 @@ export default class AddFinancialDetails extends Component {
     console.log(data);
 
     this.setState({
-      // totalIncome: "5000000",
-      // totalOutcome: "1000000",
-      // money: "4000000",
       date: "July 2022",
-      // status: "Profit",
       ifweek: "1000000",
       isweek: "1500000",
       itweek: "2000000",
@@ -414,7 +399,6 @@ export default class AddFinancialDetails extends Component {
 
     const {
       fId,
-
       totalIncome,
       totalOutcome,
       money,
@@ -434,7 +418,6 @@ export default class AddFinancialDetails extends Component {
 
     const data = {
       fId: fId,
-
       totalIncome: totalIncome,
       totalOutcome: totalOutcome,
       money: money,
@@ -454,22 +437,21 @@ export default class AddFinancialDetails extends Component {
     console.log(data);
 
     this.setState({
-      fId,
-
-      totalIncome,
-      totalOutcome,
-      money,
-      date,
-      status,
-      ifweek,
-      isweek,
-      itweek,
-      ifoweek,
-      ifiweek,
-      ofweek,
-      osweek,
-      otweek,
-      ofoweek,
+      fId: "",
+      totalIncome: "",
+      totalOutcome: "",
+      money: "",
+      date: "",
+      status: "",
+      ifweek: "",
+      isweek: "",
+      itweek: "",
+      ifoweek: "",
+      ifiweek: "",
+      ofweek: "",
+      osweek: "",
+      otweek: "",
+      ofoweek: "",
     });
   };
 
@@ -497,11 +479,8 @@ export default class AddFinancialDetails extends Component {
               }}
             >
               <div className="col-md-8 mt-4 mx-auto">
-                <form
-                  encType="multipart/form-data"
-                  className="needs-validation"
-                  noValidate
-                >
+                <br />
+                <form>
                   <div className="form-group" style={{ marginBottom: "15px" }}>
                     <label style={{ marginBottom: "5px", color: "black" }}>
                       <b> Month</b>
@@ -517,7 +496,12 @@ export default class AddFinancialDetails extends Component {
                   </div>
                   <div className="form-group" style={{ marginBottom: "15px" }}>
                     <label style={{ marginBottom: "5px", color: "black" }}>
-                      <b>Assign a ID</b>
+                      <h4>
+                        <span class="badge bg-info text-dark opacity-90 fs-1">
+                          {" "}
+                          Assign a ID
+                        </span>
+                      </h4>
                     </label>
                     <br />
                     <button
@@ -542,7 +526,11 @@ export default class AddFinancialDetails extends Component {
                   </div>
                   <div className="form-group" style={{ marginBottom: "15px" }}>
                     <label style={{ marginBottom: "5px", color: "black" }}>
-                      <b>Income List</b>
+                      <h4>
+                        <span class="badge bg-info text-dark opacity-90 fs-1">
+                          Income List
+                        </span>
+                      </h4>
                     </label>
                     <br />
 
@@ -578,9 +566,9 @@ export default class AddFinancialDetails extends Component {
                           value={this.state.isweek}
                           onChange={this.handleInputChange}
                         />
-                        {formErrors.ifweek.length > 0 && (
+                        {formErrors.isweek.length > 0 && (
                           <span style={{ color: "red" }}>
-                            {formErrors.ifweek}
+                            {formErrors.isweek}
                           </span>
                         )}
                       </div>
@@ -596,9 +584,9 @@ export default class AddFinancialDetails extends Component {
                           value={this.state.itweek}
                           onChange={this.handleInputChange}
                         />
-                        {formErrors.ifweek.length > 0 && (
+                        {formErrors.itweek.length > 0 && (
                           <span style={{ color: "red" }}>
-                            {formErrors.ifweek}
+                            {formErrors.itweek}
                           </span>
                         )}
                       </div>
@@ -614,9 +602,9 @@ export default class AddFinancialDetails extends Component {
                           value={this.state.ifoweek}
                           onChange={this.handleInputChange}
                         />
-                        {formErrors.ifweek.length > 0 && (
+                        {formErrors.ifoweek.length > 0 && (
                           <span style={{ color: "red" }}>
-                            {formErrors.ifweek}
+                            {formErrors.ifoweek}
                           </span>
                         )}
                       </div>
@@ -632,9 +620,9 @@ export default class AddFinancialDetails extends Component {
                           value={this.state.ifiweek}
                           onChange={this.handleInputChange}
                         />
-                        {formErrors.ifweek.length > 0 && (
+                        {formErrors.ifiweek.length > 0 && (
                           <span style={{ color: "red" }}>
-                            {formErrors.ifweek}
+                            {formErrors.ifiweek}
                           </span>
                         )}
                       </div>
@@ -644,7 +632,11 @@ export default class AddFinancialDetails extends Component {
                   <br />
                   <div className="form-group" style={{ marginBottom: "15px" }}>
                     <label style={{ marginBottom: "5px", color: "black" }}>
-                      <b>Outcome List</b>
+                      <h4>
+                        <span class="badge bg-info text-dark opacity-90 fs-1">
+                          Outcome List
+                        </span>
+                      </h4>
                     </label>
                     <br />
 
@@ -662,9 +654,9 @@ export default class AddFinancialDetails extends Component {
                           value={this.state.ofweek}
                           onChange={this.handleInputChange}
                         />
-                        {formErrors.ifweek.length > 0 && (
+                        {formErrors.ofweek.length > 0 && (
                           <span style={{ color: "red" }}>
-                            {formErrors.ifweek}
+                            {formErrors.ofweek}
                           </span>
                         )}
                       </div>
@@ -680,9 +672,9 @@ export default class AddFinancialDetails extends Component {
                           value={this.state.osweek}
                           onChange={this.handleInputChange}
                         />
-                        {formErrors.ifweek.length > 0 && (
+                        {formErrors.osweek.length > 0 && (
                           <span style={{ color: "red" }}>
-                            {formErrors.ifweek}
+                            {formErrors.osweek}
                           </span>
                         )}
                       </div>
@@ -698,9 +690,9 @@ export default class AddFinancialDetails extends Component {
                           value={this.state.otweek}
                           onChange={this.handleInputChange}
                         />
-                        {formErrors.ifweek.length > 0 && (
+                        {formErrors.otweek.length > 0 && (
                           <span style={{ color: "red" }}>
-                            {formErrors.ifweek}
+                            {formErrors.otweek}
                           </span>
                         )}
                       </div>
@@ -716,9 +708,9 @@ export default class AddFinancialDetails extends Component {
                           value={this.state.ofoweek}
                           onChange={this.handleInputChange}
                         />
-                        {formErrors.ifweek.length > 0 && (
+                        {formErrors.ofoweek.length > 0 && (
                           <span style={{ color: "red" }}>
-                            {formErrors.ifweek}
+                            {formErrors.ofoweek}
                           </span>
                         )}
                       </div>
@@ -734,9 +726,9 @@ export default class AddFinancialDetails extends Component {
                           value={this.state.ofiweek}
                           onChange={this.handleInputChange}
                         />
-                        {formErrors.ifweek.length > 0 && (
+                        {formErrors.ofiweek.length > 0 && (
                           <span style={{ color: "red" }}>
-                            {formErrors.ifweek}
+                            {formErrors.ofiweek}
                           </span>
                         )}
                       </div>
@@ -804,7 +796,11 @@ export default class AddFinancialDetails extends Component {
                   </div>
                   <div className="form-group" style={{ marginBottom: "15px" }}>
                     <label style={{ marginBottom: "5px", color: "black" }}>
-                      <b>Total Profit or Loss Amount (Rupees) </b>
+                      <h4>
+                        <span class="badge bg-info text-dark opacity-90 fs-1">
+                          Total Profit or Loss Amount (Rupees)
+                        </span>
+                      </h4>
                     </label>
                     <br />
                     <div style={{ display: "flex" }}>
@@ -839,11 +835,14 @@ export default class AddFinancialDetails extends Component {
                     <button
                       className="btn btn-dark"
                       type="submit"
-                      style={{ marginTop: "15px", marginRight: "45px" }}
+                      style={{
+                        marginTop: "15px",
+                        marginRight: "25px",
+                      }}
                       onClick={this.theStatus}
                     >
                       <i className="far far-check-square"></i>
-                      &nbsp; View Status
+                      View Status
                     </button>
 
                     <div
@@ -862,22 +861,23 @@ export default class AddFinancialDetails extends Component {
                     </div>
                   </div>
                   <button
-                    className="btn btn-success"
-                    type="submit"
-                    style={{ marginTop: "15px", marginRight: "15px" }}
-                    onClick={this.onSubmit}
-                  >
-                    <i className="far far-check-square"></i>
-                    &nbsp; Publish
-                  </button>
-                  <button
-                    className="btn btn-success"
+                    className="btn btn-danger"
                     type="submit"
                     style={{ marginTop: "15px" }}
                     onClick={this.btnReset}
                   >
                     <i className="far far-check-square"></i>
-                    &nbsp; Cancel
+                    &nbsp; Reset All
+                  </button>
+                  &nbsp;&nbsp;
+                  <button
+                    className="btn btn-success"
+                    type="submit"
+                    style={{ marginTop: "15px" }}
+                    onClick={this.onSubmit}
+                  >
+                    <i className="far far-check-square"></i>
+                    &nbsp; Submit
                   </button>
                   <button
                     className="btn btn-warning"
@@ -888,6 +888,7 @@ export default class AddFinancialDetails extends Component {
                     <i className="far far-check-square"></i>
                     &nbsp; <b>Demo</b>
                   </button>{" "}
+                  <br /> <br />
                   <br />
                   <br />
                 </form>
