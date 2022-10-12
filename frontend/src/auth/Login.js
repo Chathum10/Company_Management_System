@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import "./login.css";
 
 const Login = (props) => {
   const [data, setData] = useState({
@@ -28,7 +29,7 @@ const Login = (props) => {
         }
       );
       localStorage.setItem("token", res.data.token);
-      props.history.push("/");
+      props.history.push("/home");
     } catch (err) {
       setData({ ...data, error: err.response.data.error });
     }
@@ -38,7 +39,8 @@ const Login = (props) => {
     <div className="row">
       <div className="col-sm-2" />
       <div className="col-sm-8">
-        <h4 className="text-muted text-center mb-5">Log into your account</h4>
+        <br></br> 
+        <h3 className="text-muted text-center mb-5">LOG INTO YOUR ACCOUNT</h3>
         <div className="card p-5 shadow">
           <form>
             <div className="form-group">

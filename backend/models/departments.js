@@ -1,63 +1,55 @@
 const mongoose = require('mongoose');
 
-const employeeSchema = new mongoose.Schema({
+const departmentsSchema = new mongoose.Schema({
 
-    name:{
+    dCategory:{
         type:String,
         required:true
     },
-    nic:{
+    dName:{
         type:String,
         required:true
     },
-    gender:{
+    dEmail:{
         type:String,
         required:true
     },
-    contactNo:{
+    dTeams:{
         type:String,
         required:true
     },
-    email:{
+    hName:{
+        type:String,
+        required:true
+
+    },
+    hEmail:{
         type:String,
         required:true
     },
-    empId:{
+    hNo:{
         type:String,
         required:true
     },
-    joinDate:{
-        type:String,
-        required:true
-    },
-    dueDate:{
-        type:String,
-        required:true
-    },
-    dept:{
-        type:String,
-        required:true
-    },
-    designation:{
+    uDate:{
         type:String,
         required:true
     },
 
-    //calculation part (EMP perfoamance calculation)
-    monthRating:{
+    //calculation part (Employee Count calculation)
+    permanent:{
         type:String,
     },
-    overallRating:{
+    contract:{
         type:String,
     },
-    overallmonths:{
+    interns:{
         type:String,
     },
-    performance:{
+    total:{
         type:String,
-        default: "Not Assigned",
+        default: "N/A",
     },
-
 });
 
-module.exports = mongoose.model('employees',employeeSchema);
+module.exports = mongoose.model('departments',departmentsSchema);

@@ -1,20 +1,8 @@
 const mongoose = require('mongoose');
 
-const employeeSchema = new mongoose.Schema({
+const projectsSchema = new mongoose.Schema({
 
-    name:{
-        type:String,
-        required:true
-    },
-    nic:{
-        type:String,
-        required:true
-    },
-    gender:{
-        type:String,
-        required:true
-    },
-    contactNo:{
+    cName:{
         type:String,
         required:true
     },
@@ -22,15 +10,14 @@ const employeeSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    empId:{
+    contactNo:{
         type:String,
         required:true
     },
-    joinDate:{
+    description:{
         type:String,
-        required:true
     },
-    dueDate:{
+    projectId:{
         type:String,
         required:true
     },
@@ -38,26 +25,43 @@ const employeeSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    designation:{
+    pLevel:{
         type:String,
         required:true
     },
+    sDate:{
+        type:String,
+        required:true
+    },
+    eDate:{
+        type:String,
+        required:true
+    },
+    remarks:{
+        type:String,
+    },
 
-    //calculation part (EMP perfoamance calculation)
-    monthRating:{
+    //calculation part (project progress calculation)
+    t1:{
         type:String,
     },
-    overallRating:{
+    t2:{
         type:String,
     },
-    overallmonths:{
+    t3:{
         type:String,
     },
-    performance:{
+    t4:{
         type:String,
-        default: "Not Assigned",
+    },
+    t5:{
+        type:String,
+    },
+    progress:{
+        type:String,
+        default: "Status Pending",
     },
 
 });
 
-module.exports = mongoose.model('employees',employeeSchema);
+module.exports = mongoose.model('projects',projectsSchema);
