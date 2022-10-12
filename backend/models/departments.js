@@ -36,7 +36,10 @@ const departmentsSchema = new mongoose.Schema({
         required:true
     },
 
+
     //calculation part (Employee Count calculation)
+
+
     permanent:{
         type:String,
     },
@@ -51,5 +54,7 @@ const departmentsSchema = new mongoose.Schema({
         default: "N/A",
     },
 });
+
+
 
 module.exports = mongoose.model('departments',departmentsSchema);
