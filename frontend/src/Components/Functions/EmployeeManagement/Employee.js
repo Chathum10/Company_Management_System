@@ -11,7 +11,9 @@ export default class Employee extends Component {
         };
     }
 
+
     componentDidMount() {
+
 
         const id = this.props.match.params.id;
 
@@ -21,6 +23,7 @@ export default class Employee extends Component {
                     post: res.data.post
                 });
 
+
                 console.log(this.state.post);
 
             }
@@ -29,13 +32,12 @@ export default class Employee extends Component {
 
     }
 
+
     render() {
 
         const { name, nic, gender, contactNo, email, empId, joinDate, dueDate, dept, designation } = this.state.post;
 
         return (
-
-
 
             <div style={{ marginTop: '20px' }}>
                  <div class="bg"></div>
@@ -94,11 +96,13 @@ export default class Employee extends Component {
 
 
 
-
                         </MDBCardBody>
                     </MDBCard>
+
                     <br />
+
                 </center>
+                
                 <br /> <br /> <br /> <br />
             </div>
         )
