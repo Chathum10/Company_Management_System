@@ -42,7 +42,6 @@ const employeeSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-
     
     //calculation part (EMP perfoamance calculation)
     monthRating:{
