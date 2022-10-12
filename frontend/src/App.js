@@ -38,18 +38,23 @@ const App = () => {
         <Route exact path="/" component={Login} />
         <Route exact path="/home" component={Home} />
 
+
         <Route path="/CreateEmpData" component={CreateEmpData} />
         <Route path="/EmpData" component={EmpData} />
         <Route path="/Employee/:id" component={Employee} />
 
+
         <Route path="/CreateProjectData" component={CreateProjectData} />
         <Route path="/ProjectData" component={ProjectData} />
+
 
         <Route path="/CreateDeptData" component={CreateDeptData} />
         <Route path="/DeptData" component={DeptData} />
 
+
         <Route path="/AddFinancialDetails" component={AddFinancialDetails} />
         <Route path="/FinancialDetails" component={FinancialDetails} />
+
 
         
       </Switch>
