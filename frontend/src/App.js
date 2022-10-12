@@ -7,7 +7,6 @@ import Register from "./auth/Register";
 import Login from "./auth/Login";
 import Home from "./Home";
 
-
 //Employee Management
 import CreateEmpData from "./Components/Functions/EmployeeManagement/CreateEmpData";
 import EmpData from "./Components/Functions/EmployeeManagement/EmpData";
