@@ -36,7 +36,6 @@ const departmentsSchema = new mongoose.Schema({
         required:true
     },
 
-    
     //calculation part (Employee Count calculation)
     permanent:{
         type:String,
