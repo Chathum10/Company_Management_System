@@ -1,6 +1,5 @@
 const express = require("express");
 const Financial = require("../models/financial");
-
 const router = express.Router();
 
 //save Financial details
