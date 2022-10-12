@@ -3,7 +3,9 @@ const employee = require('../models/employee');
 
 const router = express.Router();
 
+
 //Save a Employee Info
+
 
 router.post('/employee/save',(req,res)=>{
 
@@ -21,7 +23,9 @@ router.post('/employee/save',(req,res)=>{
     });
 });
 
+
 //get Employees Info
+
 
 router.get('/employee',(req,res) =>{
     employee.find().exec((err,posts) =>{
@@ -39,7 +43,10 @@ router.get('/employee',(req,res) =>{
 
 
 
+
 //get a specific Employee Info
+
+
 
 router.get("/employee/:id",(req,res) =>{
 
@@ -59,7 +66,10 @@ router.get("/employee/:id",(req,res) =>{
 });
 
 
+
 //update a Employee Info
+
+
 
 router.put('/employee/update/:id',(req,res)=>{
     employee.findByIdAndUpdate(
@@ -79,7 +89,11 @@ router.put('/employee/update/:id',(req,res)=>{
     );
 });
 
+
+
 //Delete a Employee Info
+
+
 
 router.delete('/employee/delete/:id',(req,res) =>{
     employee.findByIdAndRemove(req.params.id).exec((err,deletePost) =>{
