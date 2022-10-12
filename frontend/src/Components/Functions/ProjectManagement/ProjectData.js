@@ -11,8 +11,6 @@ export default class ProjectData extends Component {
     };
 
   }
-
-
   componentDidMount() {
     this.retrievePosts();
   }
@@ -26,7 +24,6 @@ export default class ProjectData extends Component {
 
         console.log(this.state.projects);
       }
-
 
     });
   }
@@ -43,7 +40,6 @@ export default class ProjectData extends Component {
     this.setState({ projects: result })
 
   }
-
 
   handleSearchArea = (e) => {
 
