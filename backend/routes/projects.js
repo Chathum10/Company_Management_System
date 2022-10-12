@@ -3,7 +3,6 @@ const projects = require('../models/projects');
 
 const router = express.Router();
 
-
 //Save a projects Info
 
 router.post('/projects/save',(req,res)=>{
