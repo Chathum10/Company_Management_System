@@ -72,7 +72,7 @@ const Home = (props) => {
                 </li>
                 <br></br>
                 <li>
-                    <a href="/">
+                    <a href="/home">
                         <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
                             Dashboard
@@ -136,3 +136,4 @@ const Home = (props) => {
 };
 
 export default Home;
+//chathum
