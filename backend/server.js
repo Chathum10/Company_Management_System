@@ -36,6 +36,7 @@ const departmentsRoutes = require("./routes/departments");
 //Financial Management Function Routes
 const financialRoutes = require("./routes/financial");
 
+
 //route middleware
 app.use(employRoutes);
 app.use(projectsRoutes);
