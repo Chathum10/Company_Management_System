@@ -20,6 +20,7 @@ router.post("/financial/save", (req, res) => {
   });
 });
 
+
 //get financial details
 
 router.get("/financial", (req, res) => {
