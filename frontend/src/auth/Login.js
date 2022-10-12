@@ -9,7 +9,6 @@ const Login = (props) => {
     error: null,
   });
 
-  
   const { email, password, error } = data;
 
   const handleChange = (e) => {
