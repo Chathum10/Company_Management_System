@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import "./login.css";
 
+
 const Login = (props) => {
   const [data, setData] = useState({
     email: "",
@@ -9,11 +10,14 @@ const Login = (props) => {
     error: null,
   });
 
+
   const { email, password, error } = data;
+
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,12 +32,14 @@ const Login = (props) => {
           },
         }
       );
+
       localStorage.setItem("token", res.data.token);
       props.history.push("/home");
     } catch (err) {
       setData({ ...data, error: err.response.data.error });
     }
   };
+
 
   return (
     <div className="row">
@@ -76,6 +82,7 @@ const Login = (props) => {
     </div>
   );
 };
+
 
 
 export default Login;
