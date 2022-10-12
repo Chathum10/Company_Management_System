@@ -7,7 +7,6 @@ import Register from "./auth/Register";
 import Login from "./auth/Login";
 import Home from "./Home";
 
-//Dashboard
 
 
 //Employee Management
