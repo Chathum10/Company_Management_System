@@ -10,7 +10,6 @@ const phoneRegex = RegExp(
     /^[0-9]{10,15}$/
 );
 
-
 const formValid = formErrors => {
     let valid = true;
 
@@ -19,7 +18,6 @@ const formValid = formErrors => {
     });
     return valid;
 };
-
 
 export default class CreateProjectData extends Component {
 
@@ -42,7 +40,6 @@ export default class CreateProjectData extends Component {
                 email: "",
                 contactNo: "",
             }
-
 
         }
     }
