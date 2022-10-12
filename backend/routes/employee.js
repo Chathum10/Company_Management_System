@@ -58,7 +58,6 @@ router.get("/employee/:id",(req,res) =>{
 
 });
 
-
 //update a Employee Info
 
 router.put('/employee/update/:id',(req,res)=>{
