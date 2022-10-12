@@ -3,7 +3,11 @@ const departments = require('../models/departments');
 
 const router = express.Router();
 
+
+
 //Save a departments Info
+
+
 
 router.post('/departments/save',(req,res)=>{
 
@@ -21,7 +25,11 @@ router.post('/departments/save',(req,res)=>{
     });
 });
 
+
+
 //get departments Info
+
+
 
 router.get('/departments',(req,res) =>{
     departments.find().exec((err,posts) =>{
@@ -40,6 +48,8 @@ router.get('/departments',(req,res) =>{
 
 
 //get a specific departments Info
+
+
 
 router.get("/departments/:id",(req,res) =>{
 
@@ -61,6 +71,8 @@ router.get("/departments/:id",(req,res) =>{
 
 //update a departments Info
 
+
+
 router.put('/departments/update/:id',(req,res)=>{
     departments.findByIdAndUpdate(
         req.params.id,
@@ -79,7 +91,11 @@ router.put('/departments/update/:id',(req,res)=>{
     );
 });
 
+
+
 //Delete a departments Info
+
+
 
 router.delete('/departments/delete/:id',(req,res) =>{
     departments.findByIdAndRemove(req.params.id).exec((err,deletePost) =>{
