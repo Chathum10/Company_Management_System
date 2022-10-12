@@ -6,16 +6,6 @@ const financialSchema = new mongoose.Schema({
     required: true,
   },
 
-  incomeList: {
-    type: String,
-    required: true,
-  },
-
-  outcomeList: {
-    type: String,
-    required: true,
-  },
-
   totalIncome: {
     type: String,
     required: true,
@@ -33,6 +23,46 @@ const financialSchema = new mongoose.Schema({
     required: true,
   },
   status: {
+    type: String,
+    required: true,
+  },
+  ifweek: {
+    type: String,
+    required: true,
+  },
+  isweek: {
+    type: String,
+    required: true,
+  },
+  itweek: {
+    type: String,
+    required: true,
+  },
+  ifoweek: {
+    type: String,
+    required: true,
+  },
+  ifiweek: {
+    type: String,
+    required: true,
+  },
+  ofweek: {
+    type: String,
+    required: true,
+  },
+  osweek: {
+    type: String,
+    required: true,
+  },
+  otweek: {
+    type: String,
+    required: true,
+  },
+  ofoweek: {
+    type: String,
+    required: true,
+  },
+  ofiweek: {
     type: String,
     required: true,
   },
