@@ -84,7 +84,9 @@ router.delete("/financial/delete/:id", (req, res) => {
       });
 
     return res.json({
+
       message: "delete Successfully",
+
       deleteFinancial,
     });
   });
