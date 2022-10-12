@@ -79,7 +79,6 @@ router.put('/departments/update/:id',(req,res)=>{
     );
 });
 
-
 //Delete a departments Info
 
 router.delete('/departments/delete/:id',(req,res) =>{
