@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { MDBIcon } from 'mdb-react-ui-kit';
 
+
 export default class EmpData extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +19,7 @@ export default class EmpData extends Component {
   }
 
   retrievePosts() {
+    
     axios.get("/employee").then(res => {
       if (res.data.success) {
         this.setState({
@@ -26,7 +28,6 @@ export default class EmpData extends Component {
 
         console.log(this.state.employee);
       }
-
 
     });
   }
@@ -38,11 +39,13 @@ export default class EmpData extends Component {
       post.empId.toLowerCase().includes(searchKey) ||
       post.dept.toLowerCase().includes(searchKey)
 
+
     )
 
     this.setState({ employee: result })
 
   }
+
 
 
   handleSearchArea = (e) => {
@@ -68,6 +71,7 @@ export default class EmpData extends Component {
             <input className="form-control me-2"
               type="search"
               placeholder="Search"
+
               aria-label="Search" onChange={this.handleSearchArea}>
             </input>
           </form>
@@ -82,11 +86,12 @@ export default class EmpData extends Component {
         <div >
           <br />
 
-          <h3><span class="badge bg-info text-dark opacity-90 ">Employee Information</span></h3>
+          <h3><span class="badge bg-info text-dark opacity-90 ">Employee Information   </span></h3>
           <table class="table table-bordered " >
             <thead class="table-info">
               <tr>
-                <th scope="col">EMP ID</th>
+               
+              <th scope="col">EMP ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Personal Information</th>
                 <th scope="col">Employment</th>
@@ -104,6 +109,7 @@ export default class EmpData extends Component {
                   </td>
                   <td class="table-light">{employee.name}</td>
                   <td class="table-light">
+                     
                       {employee.nic}<br />
                       {employee.gender}<br />
                       {employee.contactNo}<br />
@@ -114,6 +120,7 @@ export default class EmpData extends Component {
                       {employee.dueDate}<br />
                       {employee.dept}<br />
                       {employee.designation}<br />
+
                   </td>
 
                   <td class="table-light">
@@ -124,12 +131,15 @@ export default class EmpData extends Component {
                 </td>
 
 
+
                   <td class="table-light">
                     <a className="btn btn-warning" href={`/#/${employee._id}`}>
                      &nbsp;Edit
                     </a>
                     &nbsp;
                    
+                //onclick
+
                     <a className="btn btn-danger" href="#" onClick={() => window.confirm("Are You Sure You Want To Delete This User Profile ?") && this.onDelete(employee._id)}>
                     &nbsp;Delete
                     </a>
@@ -146,7 +156,6 @@ export default class EmpData extends Component {
 
           <br />
 
-
           <div>
             <center>
               <a className="btn btn-warning text-dark " href="/createEmpData" >
@@ -156,8 +165,11 @@ export default class EmpData extends Component {
           </div>
 
         </div>
+
         <br /><br />
+
         <br /><br />
+
       </div>
       </div>
     )
