@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { Component } from "react";
 import axios from "axios";
 import { MDBIcon } from "mdb-react-ui-kit";
@@ -29,6 +27,14 @@ export default class EmpData extends Component {
     });
   }
 
+  onDelete = (id) => {
+
+    axios.delete(`/employee/delete/${id}`).then((res) => {
+      alert("Employee Information Deleted Successfully");
+      this.retrievePosts();
+    })
+  }
+
   filterData(employee, searchKey) {
     const result = employee.filter(
       (post) =>
@@ -52,24 +58,24 @@ export default class EmpData extends Component {
   render() {
     return (
       <div className="back fixed" style={{ zIndex: 8 }}>
-        <div className="hc">
-          <br />
-          <div style={{ width: "20%", marginLeft: "80%" }}>
-            <form className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                onChange={this.handleSearchArea}
-              ></input>
-            </form>
-          </div>
-          <div id="containerJoin">
+      <div className="hc"><br />
+        <a className="btn btn-warning text-dark " href="/home" >Dashboard</a>
+        <div id="containerJoin">
             <center>
               <h1 className="gifJoin">All Employees</h1>
             </center>
           </div>
+          <div style={{ width: '20%', marginLeft: '70%' }}>
+          <form className="d-flex">
+            <input className="form-control me-2"
+              type="search"
+              placeholder="Search Employee"
+              aria-label="Search" onChange={this.handleSearchArea}>
+            </input>
+          </form>
+        </div>
+        <div >
+          <br />
 
           <div>
             <br />
@@ -82,12 +88,49 @@ export default class EmpData extends Component {
             <table class="table table-bordered ">
               <thead class="table-info">
                 <tr>
-                  <th scope="col">EMP ID</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Personal Information</th>
-                  <th scope="col">Employment</th>
-                  <th scope="col">Performance</th>
-                  <th scope="col">Action</th>
+                  <td class="table-light">
+                    <a href={`/employee/${employee._id}`} style={{ textDecoration: 'none' }}>
+                      {employee.empId}
+                    </a>
+                  </td>
+                  <td class="table-light">{employee.name}</td>
+                  <td class="table-light">
+                     
+                      {employee.nic}<br />
+                      {employee.gender}<br />
+                      {employee.contactNo}<br />
+                      {employee.email}<br />
+                  </td>
+                  <td class="table-light">
+                      {employee.joinDate}<br />
+                      {employee.dueDate}<br />
+                      {employee.dept}<br />
+                      {employee.designation}<br />
+
+                  </td>
+
+                  <td class="table-light">
+                  {employee.performance}<br />
+                    <a className="btn btn-success" href={`#/${employee._id}`}>
+                      &nbsp;Add This Month
+                    </a>
+                </td>
+
+
+
+                  <td class="table-light">
+                    <a className="btn btn-warning" href={`#/${employee._id}`}>
+                     &nbsp;Edit
+                    </a>
+                    &nbsp;
+                   
+
+                    <a className="btn btn-danger" href="#" onClick={() => window.confirm("Are You Sure You Want To Delete This User Profile ?") && this.onDelete(employee._id)}>
+                    &nbsp;Delete
+                    </a>
+                  </td>
+
+
                 </tr>
               </thead>
               <tbody>
@@ -174,7 +217,20 @@ export default class EmpData extends Component {
           <br />
           <br />
           <br />
+
+          <div>
+            <center>
+              <a className="btn btn-warning text-dark " href="/createEmpData" >
+                &nbsp;<b>Add New Employee Information</b>
+              </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a className="btn btn-warning text-dark " href="#" >
+                &nbsp;<b>Report</b>
+              </a>
+            </center>
+          </div>
+
         </div>
+      </div>
       </div>
     );
   }

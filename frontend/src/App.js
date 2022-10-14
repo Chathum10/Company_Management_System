@@ -12,6 +12,7 @@ import Home from "./Home";
 import CreateEmpData from "./Components/Functions/EmployeeManagement/CreateEmpData";
 import EmpData from "./Components/Functions/EmployeeManagement/EmpData";
 import Employee from "./Components/Functions/EmployeeManagement/Employee";
+import EditEmpData from "./Components/Functions/EmployeeManagement/EditEmpData";
 
 //Project Management
 import CreateProjectData from "./Components/Functions/ProjectManagement/CreateProjectData";
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/CreateEmpData" component={CreateEmpData} />
         <Route path="/EmpData" component={EmpData} />
         <Route path="/Employee/:id" component={Employee} />
+        <Route path="/EditEmpData/:id" component={EditEmpData} />
 
         <Route path="/CreateProjectData" component={CreateProjectData} />
         <Route path="/ProjectData" component={ProjectData} />

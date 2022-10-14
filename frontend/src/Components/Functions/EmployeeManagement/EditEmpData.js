@@ -29,7 +29,7 @@ const formValid = formErrors => {
     return valid;
 };
 
-export default class CreateEmpData extends Component {
+export default class EditEmpData extends Component {
 
     constructor(props) {
         super(props);
