@@ -28,7 +28,7 @@ const formValid = formErrors => {
 
 
 
-export default class CreateDeptData extends Component {
+export default class EditDeptData extends Component {
 
     constructor(props) {
         super(props);
@@ -88,86 +88,13 @@ export default class CreateDeptData extends Component {
     }
 
 
-    btnDemo = (e) => {
-        e.preventDefault();
-
-        const { dCategory, dName, dEmail, dTeams, hName, hEmail, hNo, uDate } = this.state;
-
-        const data = {
-
-            dCategory: dCategory,
-            dName: dName,
-            dEmail: dEmail,
-            dTeams: dTeams,
-            hName: hName,
-            hEmail: hEmail,
-            hNo: hNo,
-            uDate: uDate
-        }
-        console.log(data)
-
-        this.setState(
-            {
-                dCategory: "Technology",
-                dName: "Intelligent Automation",
-                dEmail: "intelligentautomation@whitelight.com",
-                dTeams: "3",
-                hName: "R.A.E.Wijenayake",
-                hEmail: "ashen910@gmail.com",
-                hNo: "0776869123",
-                uDate: "2022-09-09",
-
-            }
-        )
-
-    }
-
-
-    btnReset = (e) => {
-        e.preventDefault();
-
-        const { dCategory, dName, dEmail, dTeams, hName, hEmail, hNo, uDate } = this.state;
-
-        const data = {
-
-            dCategory: dCategory,
-            dName: dName,
-            dEmail: dEmail,
-            dTeams: dTeams,
-            hName: hName,
-            hEmail: hEmail,
-            hNo: hNo,
-            uDate: uDate
-
-
-        }
-        console.log(data)
-
-        this.setState(
-            {
-                dCategory: "",
-                dName: "",
-                dEmail: "",
-                dTeams: "",
-                hName: "",
-                hEmail: "",
-                hNo: "",
-                uDate: "",
-
-            }
-        )
-
-    }
-
-
-
-
 
     onSubmit = (e) => {
 
         e.preventDefault();
 
         if (formValid(this.state.formErrors)) {
+            const id = this.props.match.params.id;
             const { dCategory, dName, dEmail, dTeams, hName, hEmail, hNo, uDate } = this.state;
 
             const data = {
@@ -185,10 +112,10 @@ export default class CreateDeptData extends Component {
 
             console.log(data)
 
-            axios.post("/departments/save", data).then((res) => {
+            axios.put(`/departments/update/${id}`, data).then((res) => {
                 let path = "/DeptData";
                 if (res.data.success) {
-                    alert("Create A New Department Successfully!");
+                    alert("Update Department Data Successfully!");
                     this.props.history.push(path);
                     this.setState(
                         {
@@ -214,6 +141,33 @@ export default class CreateDeptData extends Component {
 
     }
 
+    componentDidMount() {
+
+        const id = this.props.match.params.id;
+
+        axios.get(`/departments/${id}`).then((res) => {
+            if (res.data.success) {
+                this.setState({
+                dCategory: res.data.post.dCategory,
+                dName: res.data.post.dName,
+                dEmail: res.data.post.dEmail,
+                dTeams: res.data.post.dTeams,
+                hName: res.data.post.hName,
+                hEmail: res.data.post.hEmail,
+                hNo: res.data.post.hNo,
+                uDate: res.data.post.uDate
+
+                });
+
+                console.log(this.state.post);
+
+            }
+
+        });
+
+    }
+
+
 
 
 
@@ -223,7 +177,7 @@ export default class CreateDeptData extends Component {
             <div className="back fixed" style={{ zIndex: 8 }}><br />
                 <div className="com-md-8 mt-4 mx-auto">
                     <br /> <br />
-                    <center><h1><span class="badge bg-info text-dark opacity-90 fs-1">Create A New Department</span></h1></center>
+                    <center><h1><span class="badge bg-info text-dark opacity-90 fs-1">Update Department Info</span></h1></center>
                     <center>
                         <br />
 
@@ -342,20 +296,12 @@ export default class CreateDeptData extends Component {
                                     </div>
 
                                     <center>
-                                    <button className="btn btn-danger" type="submit" style={{ marginTop: '15px' }} onClick={this.btnReset}>
-                                        <i className="far far-check-square"></i>
-                                        &nbsp; Reset All
-                                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <button className="btn btn-success" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
                                         <i className="far far-check-square"></i>
-                                        &nbsp; Submit
+                                        &nbsp; Save Changes
                                     </button>
-                                    </center>
+                                    </center><br /><br />
 
-                                    <button className="btn btn-warning" type="submit" style={{ marginTop: '15px', marginLeft: '300px' }} onClick={this.btnDemo}>
-                                        <i className="far far-check-square"></i>
-                                        &nbsp; <b>Demo</b>
-                                    </button> <br /> <br />
 
                                 </form>
 

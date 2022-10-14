@@ -31,6 +31,14 @@ export default class DepData extends Component {
     });
   }
 
+  onDelete = (id) => {
+
+    axios.delete(`/departments/delete/${id}`).then((res) => {
+      alert("Department Data Deleted Successfully");
+      this.retrievePosts();
+    })
+  }
+
 
   filterData(departments, searchKey) {
 
@@ -62,21 +70,26 @@ export default class DepData extends Component {
       <div className="back fixed" style={{ zIndex: 8 }}>
       <div className="hc">
         <br />
-        <div style={{ width: '20%', marginLeft: '80%' }}>
-          <form className="d-flex">
-            <input className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search" onChange={this.handleSearchArea}>
-            </input>
-          </form>
-        </div>
+        <a className="btn btn-warning text-dark " href="/home" >
+               <b>Dashboard</b>
+              </a>
+
         <div id="containerJoin">
             <center>
               <h1 className="gifJoin">All Departments</h1>
 
             </center>
           </div>
+
+          <div style={{ width: '20%', marginLeft: '70%' }}>
+          <form className="d-flex">
+            <input className="form-control me-2"
+              type="search"
+              placeholder="Search Department"
+              aria-label="Search" onChange={this.handleSearchArea}>
+            </input>
+          </form>
+        </div>
           
         <div >
           <br />
@@ -101,31 +114,31 @@ export default class DepData extends Component {
                     </a>
                   </td>
                   <td class="table-light">
-                      {departments.dCategory}<br />
-                      {departments.dEmail}<br />
-                      {departments.dTeams}<br />
+                  <b>Category:</b> {departments.dCategory}<br />
+                  <b>Dept Email:</b> {departments.dEmail}<br />
+                  <b>Reporting Teams:</b> {departments.dTeams}<br />
                   </td>
                   <td class="table-light">
-                      {departments.hName}<br />
-                      {departments.hEmail}<br />
-                      {departments.hNo}<br />
+                  <b>Director's Name:</b> {departments.hName}<br />
+                  <b>Director's Email:</b> {departments.hEmail}<br />
+                  <b>Contact No:</b> {departments.hNo}<br />
                   </td>
 
                   <td class="table-light">
                   {departments.total}<br />
-                    <a className="btn btn-success" href={`/#/${departments._id}`}>
+                    <a className="btn btn-success" href={`#/${departments._id}`}>
                       &nbsp;Cal Emp Count
                     </a>
                 </td>
 
 
                   <td class="table-light">
-                    <a className="btn btn-warning" href={`/#/${departments._id}`}>
+                    <a className="btn btn-warning" href={`EditDeptData/${departments._id}`}>
                      &nbsp;Edit
                     </a>
                     &nbsp;
                    
-                    <a className="btn btn-danger" href="#" onClick={() => window.confirm("Are You Sure You Want To Delete This User Profile ?") && this.onDelete(departments._id)}>
+                    <a className="btn btn-danger" href="#" onClick={() => window.confirm("Are You Sure You Want To Delete This Department Info?") && this.onDelete(departments._id)}>
                     &nbsp;Delete
                     </a>
                   </td>
@@ -145,7 +158,7 @@ export default class DepData extends Component {
           <div>
             <center>
               <a className="btn btn-warning text-dark " href="/CreateDeptData" >
-                <MDBIcon fas icon="user-plus" size='2x' />&nbsp;<b>Create New Department</b>
+              <b>Create New Department</b>
               </a>
             </center>
           </div>

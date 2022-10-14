@@ -19,7 +19,7 @@ const formValid = formErrors => {
     return valid;
 };
 
-export default class CreateProjectData extends Component {
+export default class EditProjectData extends Component {
 
     constructor(props) {
         super(props);
@@ -70,103 +70,13 @@ export default class CreateProjectData extends Component {
         })
     }
 
-    generateProjectId = (e) => {
-        e.preventDefault();
-
-        const { cName, email, contactNo, pLevel, projectId, sDate, eDate, dept, description, remarks } = this.state;
-        this.setState({ projectId: "WL_" + parseInt(this.state.contactNo) })
-    }
-
-    btnDemo = (e) => {
-        e.preventDefault();
-
-        const { cName, email, contactNo, pLevel, projectId, sDate, eDate, dept, description, remarks } = this.state;
-
-        const data = {
-
-            cName: cName,
-            contactNo: contactNo,
-            email: email,
-            projectId: projectId,
-            sDate: sDate,
-            eDate: eDate,
-            dept: dept,
-            description: description,
-            pLevel: pLevel,
-            remarks: remarks
-
-
-        }
-        console.log(data)
-
-        this.setState(
-            {
-                cName: "Strtchline",
-                email: "pro@strtchline.com",
-                contactNo: "94110002223",
-                description: "",
-                projectId: "",
-                dept: "Intelligent Automation",
-                pLevel: "5",
-                sDate: "2022-05-02",
-                eDate: "2022-05-02",
-                remarks: "",
-
-            }
-        )
-
-    }
-
-
-    btnReset = (e) => {
-        e.preventDefault();
-
-        const { cName, email, contactNo, pLevel, projectId, sDate, eDate, dept, description, remarks } = this.state;
-
-        const data = {
-
-            cName: cName,
-            contactNo: contactNo,
-            email: email,
-            projectId: projectId,
-            sDate: sDate,
-            eDate: eDate,
-            dept: dept,
-            description: description,
-            pLevel: pLevel,
-            remarks: remarks
-
-
-        }
-        console.log(data)
-
-        this.setState(
-            {
-                cName: "",
-                email: "",
-                contactNo: "",
-                description: "",
-                projectId: "",
-                dept: "",
-                pLevel: "",
-                sDate: "",
-                eDate: "",
-                remarks: "",
-
-            }
-        )
-
-    }
-
-
-
-
 
     onSubmit = (e) => {
 
         e.preventDefault();
 
         if (formValid(this.state.formErrors)) {
+            const id = this.props.match.params.id;
             const { cName, email, contactNo, pLevel, projectId, sDate, eDate, dept, description, remarks } = this.state;
 
             const data = {
@@ -186,10 +96,10 @@ export default class CreateProjectData extends Component {
 
             console.log(data)
 
-            axios.post("/projects/save", data).then((res) => {
+            axios.put(`/projects/update/${id}`, data).then((res) => {
                 let path = "/ProjectData";
                 if (res.data.success) {
-                    alert("Add New Project Data Successfully!");
+                    alert("Update Project Data Successfully!");
                     this.props.history.push(path);
                     this.setState(
                         {
@@ -217,8 +127,33 @@ export default class CreateProjectData extends Component {
 
     }
 
+    componentDidMount() {
 
+        const id = this.props.match.params.id;
 
+        axios.get(`/projects/${id}`).then((res) => {
+            if (res.data.success) {
+                this.setState({
+                    cName: res.data.post.cName,
+                    contactNo: res.data.post.contactNo,
+                    email: res.data.post.email,
+                    projectId: res.data.post.projectId,
+                    sDate: res.data.post.sDate,
+                    eDate: res.data.post.eDate,
+                    dept: res.data.post.dept,
+                    description: res.data.post.description,
+                    pLevel: res.data.post.pLevel,
+                    remarks: res.data.post.remarks
+
+                });
+
+                console.log(this.state.post);
+
+            }
+
+        });
+
+    }
 
     render() {
         const { formErrors } = this.state;
@@ -226,7 +161,7 @@ export default class CreateProjectData extends Component {
             <div className="back fixed" style={{ zIndex: 8 }}><br />
                 <div className="com-md-8 mt-4 mx-auto">
                     <br /> <br />
-                    <center><h1><span class="badge bg-info text-dark opacity-90 fs-1">Add Project Information</span></h1></center>
+                    <center><h1><span class="badge bg-info text-dark opacity-90 fs-1">Edit Project Information</span></h1></center>
                     <center>
                         <br />
 
@@ -240,6 +175,7 @@ export default class CreateProjectData extends Component {
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example3"><b>Client Name</b></label>
                                         <input type="text"
+                                            readOnly
                                             className="form-control"
                                             name="cName"
                                             placeholder="Client/Company Name"
@@ -252,6 +188,7 @@ export default class CreateProjectData extends Component {
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example3"><b>Email</b></label>
                                         <input type="text"
+                                            readOnly
                                             className="form-control"
                                             name="email"
                                             placeholder="Enter valid Email"
@@ -266,6 +203,7 @@ export default class CreateProjectData extends Component {
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example3"><b>Contact Number</b></label>
                                         <input type="text"
+                                            readOnly
                                             className="form-control"
                                             name="contactNo"
                                             placeholder="Enter Valid Contact Number (EX:94xxxxxxxxx)"
@@ -283,16 +221,12 @@ export default class CreateProjectData extends Component {
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example3"><b>projectId</b></label> <br />
                                         <input type="text"
+                                            readOnly
                                             className="form-control"
                                             name="projectId"
                                             placeholder="EX:WL_xxxxxxxxx"
                                             value={this.state.projectId}
                                             onChange={this.handleInputChange} />
-
-                                        <button className="btn btn-dark" type="submit" style={{ marginTop: '15px' }} onClick={this.generateProjectId}>
-                                            <i className="far far-check-square"></i>
-                                            &nbsp; Generate
-                                        </button>
 
                                     </div>
 
@@ -343,6 +277,7 @@ export default class CreateProjectData extends Component {
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example3"><b>Start Date</b></label>
                                         <input type="date"
+                                            readOnly
                                             className="form-control"
                                             name="sDate"
                                             placeholder=""
@@ -375,19 +310,12 @@ export default class CreateProjectData extends Component {
 
                                     </div>
 
-                                    <button className="btn btn-danger" type="submit" style={{ marginTop: '15px' }} onClick={this.btnReset}>
-                                        <i className="far far-check-square"></i>
-                                        &nbsp; Reset All
-                                    </button>&nbsp;&nbsp;
+                                    <center>
                                     <button className="btn btn-success" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
                                         <i className="far far-check-square"></i>
-                                        &nbsp; Submit
+                                        &nbsp; Save Changes
                                     </button>
-
-                                    <button className="btn btn-warning" type="submit" style={{ marginTop: '15px', marginLeft: '300px' }} onClick={this.btnDemo}>
-                                        <i className="far far-check-square"></i>
-                                        &nbsp; <b>Demo</b>
-                                    </button> <br /> <br />
+                                    </center><br /><br />
 
                                 </form>
 

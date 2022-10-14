@@ -90,104 +90,12 @@ export default class EditEmpData extends Component {
         })
     }
 
-    generateEmpID = (e) => {
-        e.preventDefault();
-
-        const { name, nic, gender, contactNo, email, empId, joinDate, dueDate, dept, designation } = this.state;
-        this.setState({ empId: "WL_" + parseInt(this.state.nic) })
-    }
-
-    btnDemo = (e) => {
-        e.preventDefault();
-
-        const { name, nic, gender, contactNo, email, empId, joinDate, dueDate, dept, designation } = this.state;
-
-        const data = {
-            name: name,
-            nic: nic,
-            contactNo: contactNo,
-            email: email,
-            gender: gender,
-            empId: empId,
-            joinDate: joinDate,
-            dueDate: dueDate,
-            dept: dept,
-            designation: designation
-
-        }
-        console.log(data)
-
-        this.setState(
-            {
-                name: "C.D.Adhihetty",
-                nic: "200009602428",
-                gender: "Male",
-                contactNo: "0773825110",
-                email: "chathumsanga65@gmail.com",
-                empId: "WL_200009602428",
-                joinDate: "2022-05-02",
-                dueDate: "2022-11-02",
-                dept: "Intelligent Automation",
-                designation: "Intern",
-
-            }
-        )
-
-    }
-
-
-
-
-    btnReset = (e) => {
-        e.preventDefault();
-
-        const { name, nic, gender, contactNo, email, empId, joinDate, dueDate, dept, designation } = this.state;
-
-        const data = {
-
-            name: name,
-            nic: nic,
-            contactNo: contactNo,
-            email: email,
-            gender: gender,
-            empId: empId,
-            joinDate: joinDate,
-            dueDate: dueDate,
-            dept: dept,
-            designation: designation
-
-
-            
-        }
-        console.log(data)
-
-        this.setState(
-            {
-                name: "",
-                nic: "",
-                gender: "",
-                contactNo: "",
-                email: "",
-                empId: "",
-                joinDate: "",
-                dueDate: "",
-                dept: "",
-                designation: "",
-
-            }
-        )
-
-    }
-
-
-
-
-
     onSubmit = (e) => {
 
         e.preventDefault();
 
         if (formValid(this.state.formErrors)) {
+            const id = this.props.match.params.id;
             const { name, nic, gender, contactNo, email, empId, joinDate, dueDate, dept, designation } = this.state;
 
             const data = {
@@ -207,10 +115,10 @@ export default class EditEmpData extends Component {
 
             console.log(data)
 
-            axios.post("/employee/save", data).then((res) => {
+            axios.put(`/employee/update/${id}`, data).then((res) => {
                 let path = "/EmpData";
                 if (res.data.success) {
-                    alert("Add EMP Data Successfully!");
+                    alert("Update EMP Data Successfully!");
                     this.props.history.push(path);
                     this.setState(
                         {
@@ -238,6 +146,34 @@ export default class EditEmpData extends Component {
 
     }
 
+    componentDidMount() {
+
+        const id = this.props.match.params.id;
+
+        axios.get(`/employee/${id}`).then((res) => {
+            if (res.data.success) {
+                this.setState({
+                    name: res.data.post.name,
+                    nic: res.data.post.nic,
+                    contactNo: res.data.post.contactNo,
+                    email: res.data.post.email,
+                    gender: res.data.post.gender,
+                    empId: res.data.post.empId,
+                    joinDate: res.data.post.joinDate,
+                    dueDate: res.data.post.dueDate,
+                    dept: res.data.post.dept,
+                    designation: res.data.post.designation
+
+                });
+
+                console.log(this.state.post);
+
+            }
+
+        });
+
+    }
+
 
 
 
@@ -247,7 +183,7 @@ export default class EditEmpData extends Component {
             <div className="back fixed" style={{ zIndex: 8 }}><br />
                 <div className="com-md-8 mt-4 mx-auto">
                     <br /> <br />
-                    <center><h1><span class="badge bg-info text-dark opacity-90 fs-1">Add Employee Information</span></h1></center>
+                    <center><h1><span class="badge bg-info text-dark opacity-90 fs-1">Edit Employee Information</span></h1></center>
                     <center>
                         <br />
 
@@ -276,6 +212,7 @@ export default class EditEmpData extends Component {
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example3"><b>NIC</b></label>
                                         <input type="text"
+                                            disabled
                                             className="form-control"
                                             name="nic"
                                             placeholder="Enter NIC"
@@ -333,28 +270,21 @@ export default class EditEmpData extends Component {
                                   
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example3"><b>EmpID</b></label>
-                                        <table>
-                                        <th>
                                         <input type="text"
+                                            disabled
                                             className="form-control"
                                             name="empId"
                                             placeholder="EX:WL_xxxxxxxxx"
                                             value={this.state.empId}
                                             onChange={this.handleInputChange} />
-                                    </th>
-                                    <th>
-                                        <button className="btn btn-dark" type="submit" style={{ marginTop: '-5px', marginRight:'30px'}} onClick={this.generateEmpID}>
-                                            <i className="far far-check-square"></i>
-                                            &nbsp; Generate
-                                        </button>
-                                    </th>
-                                        </table>
+
                                     </div>
 
 
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form3Example3"><b>Join Date</b></label>
                                         <input type="date"
+                                            disabled
                                             className="form-control"
                                             name="joinDate"
                                             placeholder=""
@@ -420,20 +350,12 @@ export default class EditEmpData extends Component {
                                     </div>
 
                                     <center>             
-                                    <button className="btn btn-danger" type="submit" style={{ marginTop: '15px' }} onClick={this.btnReset}>
-                                        <i className="far far-check-square"></i>
-                                        &nbsp; Reset All
-                                    </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <button className="btn btn-success" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
                                         <i className="far far-check-square"></i>
-                                        &nbsp; Submit
+                                        &nbsp; Save Changes
                                     </button>
-                                    </center>
+                                    </center><br /><br />
 
-                                    <button className="btn btn-warning" type="submit" style={{ marginTop: '15px', marginLeft: '300px' }} onClick={this.btnDemo}>
-                                        <i className="far far-check-square"></i>
-                                        &nbsp; <b>Demo</b>
-                                    </button> <br /> <br />
 
                                 </form>
 

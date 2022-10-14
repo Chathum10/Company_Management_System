@@ -28,6 +28,14 @@ export default class ProjectData extends Component {
     });
   }
 
+  onDelete = (id) => {
+
+    axios.delete(`/projects/delete/${id}`).then((res) => {
+      alert("Projects Data Deleted Successfully");
+      this.retrievePosts();
+    })
+  }
+
 
   filterData(projects, searchKey) {
 
@@ -59,26 +67,31 @@ export default class ProjectData extends Component {
       <div className="back fixed" style={{ zIndex: 8 }}>
       <div className="hc">
         <br />
-        <div style={{ width: '20%', marginLeft: '80%' }}>
+        <a className="btn btn-warning text-dark " href="/home" >
+               <b>Dashboard</b>
+              </a>
+        
+        <div id="containerJoin">
+            <center>
+              <h1 className="gifJoin">All Projects</h1>
+
+            </center>
+          </div>
+
+          <div style={{ width: '20%', marginLeft: '70%' }}>
           <form className="d-flex">
             <input className="form-control me-2"
               type="search"
-              placeholder="Search"
+              placeholder="Search Project"
               aria-label="Search" onChange={this.handleSearchArea}>
             </input>
           </form>
         </div>
-        <div id="containerJoin">
-            <center>
-              <h1 className="gifJoin">All projects</h1>
-
-            </center>
-          </div>
           
         <div >
           <br />
 
-          <h3><span class="badge bg-info text-dark opacity-90 ">projects Information</span></h3>
+          <h3><span class="badge bg-info text-dark opacity-90 ">Projects Information</span></h3>
           <table class="table table-bordered " >
             <thead class="table-info">
               <tr>
@@ -98,35 +111,35 @@ export default class ProjectData extends Component {
                     </a>
                   </td>
                   <td class="table-light">
-                      {projects.cName}<br />
-                      {projects.email}<br />
-                      {projects.contactNo}<br />
+                  <b>Name:</b> {projects.cName}<br />
+                  <b>Client Email:</b> {projects.email}<br />
+                  <b>Contact No:</b> {projects.contactNo}<br />
                   </td>
                   <td class="table-light">
-                      {projects.description}<br />
-                      {projects.dept}<br />
-                      {projects.pLevel}<br />
-                      {projects.sDate}<br />
-                      {projects.eDate}<br />
-                      {projects.remarks}<br />
+                  <b>Description:</b> {projects.description}<br />
+                  <b>Assign to:</b> {projects.dept}<br />
+                  <b>Priority Level:</b> {projects.pLevel}<br />
+                  <b>Start Date:</b> {projects.sDate}<br />
+                  <b>End Date:</b> {projects.eDate}<br />
+                  <b>Remarks:</b> {projects.remarks}<br />
                       
                   </td>
 
                   <td class="table-light">
                   {projects.progress}<br />
-                    <a className="btn btn-success" href={`/#/${projects._id}`}>
+                    <a className="btn btn-success" href={`#/${projects._id}`}>
                       &nbsp;Add Progress
                     </a>
                 </td>
 
 
                   <td class="table-light">
-                    <a className="btn btn-warning" href={`/#/${projects._id}`}>
+                    <a className="btn btn-warning" href={`EditProjectData/${projects._id}`}>
                      &nbsp;Edit
                     </a>
                     &nbsp;
                    
-                    <a className="btn btn-danger" href="#" onClick={() => window.confirm("Are You Sure You Want To Delete This User Profile ?") && this.onDelete(projects._id)}>
+                    <a className="btn btn-danger" href="#" onClick={() => window.confirm("Are You Sure You Want To Delete This Project Data?") && this.onDelete(projects._id)}>
                     &nbsp;Delete
                     </a>
                   </td>
@@ -146,7 +159,7 @@ export default class ProjectData extends Component {
           <div>
             <center>
               <a className="btn btn-warning text-dark " href="/CreateProjectData" >
-                <MDBIcon fas icon="user-plus" size='2x' />&nbsp;<b>Add New projects Information</b>
+              <b>Add New Project Data</b>
               </a>
             </center>
           </div>

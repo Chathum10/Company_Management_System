@@ -17,10 +17,12 @@ import EditEmpData from "./Components/Functions/EmployeeManagement/EditEmpData";
 //Project Management
 import CreateProjectData from "./Components/Functions/ProjectManagement/CreateProjectData";
 import ProjectData from "./Components/Functions/ProjectManagement/ProjectData";
+import EditProjectData from "./Components/Functions/ProjectManagement/EditProjectData";
 
 //Department Management
 import CreateDeptData from "./Components/Functions/DepartmentManagement/CreateDeptData";
 import DeptData from "./Components/Functions/DepartmentManagement/DeptData";
+import EditDeptData from "./Components/Functions/DepartmentManagement/EditDeptData";
 
 //Financial Management
 import AddFinancialDetails from "./Components/Functions/FinancialManagement/AddFinancialDetails";
@@ -43,9 +45,11 @@ const App = () => {
 
         <Route path="/CreateProjectData" component={CreateProjectData} />
         <Route path="/ProjectData" component={ProjectData} />
+        <Route path="/EditProjectData/:id" component={EditProjectData} />
 
         <Route path="/CreateDeptData" component={CreateDeptData} />
         <Route path="/DeptData" component={DeptData} />
+        <Route path="/EditDeptData/:id" component={EditDeptData} />
 
         <Route path="/AddFinancialDetails" component={AddFinancialDetails} />
         <Route path="/FinancialDetails" component={FinancialDetails} />
