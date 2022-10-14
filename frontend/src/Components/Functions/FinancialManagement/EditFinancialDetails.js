@@ -13,7 +13,7 @@ const formValid = (formErrors) => {
   return valid;
 };
 
-export default class AddFinancialDetails extends Component {
+export default class EditFinancialDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,16 +33,6 @@ export default class AddFinancialDetails extends Component {
       otweek: "",
       ofoweek: "",
       ofiweek: "",
-      ifweekd: "",
-      isweekd: "",
-      itweekd: "",
-      ifoweekd: "",
-      ifiweekd: "",
-      ofweekd: "",
-      osweekd: "",
-      otweekd: "",
-      ofoweekd: "",
-      ofiweekd: "",
 
       formErrors: {
         ifweek: "",
@@ -55,16 +45,6 @@ export default class AddFinancialDetails extends Component {
         otweek: "",
         ofoweek: "",
         ofiweek: "",
-        ifweekd: "",
-        isweekd: "",
-        itweekd: "",
-        ifoweekd: "",
-        ifiweekd: "",
-        ofweekd: "",
-        osweekd: "",
-        otweekd: "",
-        ofoweekd: "",
-        ofiweekd: "",
       },
     };
   }
@@ -136,109 +116,6 @@ export default class AddFinancialDetails extends Component {
       ...this.state,
       [name]: value,
     });
-  };
-
-  onSubmit = (e) => {
-    e.preventDefault();
-    if (formValid(this.state.formErrors)) {
-      const {
-        fId,
-        totalIncome,
-        totalOutcome,
-        money,
-        date,
-        status,
-        ifweek,
-        isweek,
-        itweek,
-        ifoweek,
-        ifiweek,
-        ofweek,
-        osweek,
-        otweek,
-        ofoweek,
-        ofiweek,
-        ifweekd,
-        isweekd,
-        itweekd,
-        ifoweekd,
-        ifiweekd,
-        ofweekd,
-        osweekd,
-        otweekd,
-        ofoweekd,
-        ofiweekd,
-      } = this.state;
-
-      const data = {
-        fId: fId,
-        totalIncome: totalIncome,
-        totalOutcome: totalOutcome,
-        money: money,
-        date: date,
-        status: status,
-        ifweek: ifweek,
-        isweek: isweek,
-        itweek: itweek,
-        ifoweek: ifoweek,
-        ifiweek: ifiweek,
-        ofweek: ofweek,
-        osweek: osweek,
-        otweek: otweek,
-        ofoweek: ofoweek,
-        ofiweek: ofiweek,
-        ifweekd: ifweekd,
-        isweekd: isweekd,
-        itweekd: itweekd,
-        ifoweekd: ifoweekd,
-        ifiweekd: ifiweekd,
-        ofweekd: ofweekd,
-        osweekd: osweekd,
-        otweekd: otweekd,
-        ofoweekd: ofoweekd,
-        ofiweekd: ofiweekd,
-      };
-
-      console.log(data);
-
-      axios.post("/financial/save", data).then((res) => {
-        let path = "/FinancialDetails";
-        if (res.data.success) {
-          alert("Added financial details Successfully!");
-          this.props.history.push(path);
-          this.setState({
-            fId: "",
-            totalIncome: "",
-            totalOutcome: "",
-            money: "",
-            date: "",
-            status: "",
-            ifweek: "",
-            isweek: "",
-            itweek: "",
-            ifoweek: "",
-            ifiweek: "",
-            ofweek: "",
-            osweek: "",
-            otweek: "",
-            ofoweek: "",
-            ofiweek: "",
-            ifweekd: "",
-            isweekd: "",
-            itweekd: "",
-            ifoweekd: "",
-            ifiweekd: "",
-            ofweekd: "",
-            osweekd: "",
-            otweekd: "",
-            ofoweekd: "",
-            ofiweekd: "",
-          });
-        }
-      });
-    } else {
-      console.error("Form Invalid");
-    }
   };
 
   totPayble = (e) => {
@@ -436,183 +313,119 @@ export default class AddFinancialDetails extends Component {
     this.setState({ fId: "F" + this.state.date });
   };
 
-  btnDemo = (e) => {
+  onSubmit = (e) => {
     e.preventDefault();
 
-    const {
-      fId,
-      totalIncome,
-      totalOutcome,
-      money,
-      date,
-      status,
-      ifweek,
-      isweek,
-      itweek,
-      ifoweek,
-      ifiweek,
-      ofweek,
-      osweek,
-      otweek,
-      ofoweek,
-      ofiweek,
-      ifweekd,
-      isweekd,
-      itweekd,
-      ifoweekd,
-      ifiweekd,
-      ofweekd,
-      osweekd,
-      otweekd,
-      ofoweekd,
-      ofiweekd,
-    } = this.state;
+    if (formValid(this.state.formErrors)) {
+      const id = this.props.match.params.id;
 
-    const data = {
-      fId: fId,
-      totalIncome: totalIncome,
-      totalOutcome: totalOutcome,
-      money: money,
-      date: date,
-      status: status,
-      ifweek: ifweek,
-      isweek: isweek,
-      itweek: itweek,
-      ifoweek: ifoweek,
-      ifiweek: ifiweek,
-      ofweek: ofweek,
-      osweek: osweek,
-      otweek: otweek,
-      ofoweek: ofoweek,
-      ofiweek: ofiweek,
-      ifweekd: ifweekd,
-      isweekd: isweekd,
-      itweekd: itweekd,
-      ifoweekd: ifoweekd,
-      ifiweekd: ifiweekd,
-      ofweekd: ofweekd,
-      osweekd: osweekd,
-      otweekd: otweekd,
-      ofoweekd: ofoweekd,
-      ofiweekd: ofiweekd,
-    };
-    console.log(data);
+      const {
+        fId,
+        totalIncome,
+        totalOutcome,
+        money,
+        date,
+        status,
+        ifweek,
+        isweek,
+        itweek,
+        ifoweek,
+        ifiweek,
+        ofweek,
+        osweek,
+        otweek,
+        ofoweek,
+        ofiweek,
+      } = this.state;
 
-    this.setState({
-      date: "July 2022",
-      ifweek: "1000000",
-      isweek: "1500000",
-      itweek: "2000000",
-      ifoweek: "500000",
-      ifiweek: "500000",
-      ofweek: "20000",
-      osweek: "100000",
-      otweek: "45000",
-      ofoweek: "75000",
-      ofiweek: "21000",
-      ifweekd: "Stageclip proj",
-      isweekd: "flash project",
-      itweekd: "NLP project",
-      ifoweekd: "Banthom Proj",
-      ifiweekd: "Metavisionary",
-      ofweekd: "Cost of server",
-      osweekd: "office party",
-      otweekd: "sallaries",
-      ofoweekd: "internet bill",
-      ofiweekd: "electricity bill",
-    });
+      const data = {
+        fId: fId,
+        totalIncome: totalIncome,
+        totalOutcome: totalOutcome,
+        money: money,
+        date: date,
+        status: status,
+        ifweek: ifweek,
+        isweek: isweek,
+        itweek: itweek,
+        ifoweek: ifoweek,
+        ifiweek: ifiweek,
+        ofweek: ofweek,
+        osweek: osweek,
+        otweek: otweek,
+        ofoweek: ofoweek,
+        ofiweek: ofiweek,
+      };
+      console.log(data);
+
+      axios.put(`/financial/update/${id}`, data).then((res) => {
+        let path = "/FinancialDetails";
+        if (res.data.success) {
+          alert("financial details Updated Successfully");
+          this.props.history.push(path);
+          this.setState({
+            fId: "",
+            totalIncome: "",
+            totalOutcome: "",
+            money: "",
+            date: "",
+            status: "",
+            ifweek: "",
+            isweek: "",
+            itweek: "",
+            ifoweek: "",
+            ifiweek: "",
+            ofweek: "",
+            osweek: "",
+            otweek: "",
+            ofoweek: "",
+            ofiweek: "",
+          });
+        }
+      });
+    } else {
+      console.error("Form Invalid");
+    }
   };
 
-  btnReset = (e) => {
-    e.preventDefault();
+  componentDidMount() {
+    const id = this.props.match.params.id;
 
-    const {
-      fId,
-      totalIncome,
-      totalOutcome,
-      money,
-      date,
-      status,
-      ifweek,
-      isweek,
-      itweek,
-      ifoweek,
-      ifiweek,
-      ofweek,
-      osweek,
-      otweek,
-      ofoweek,
-      ofiweek,
-      ifweekd,
-      isweekd,
-      itweekd,
-      ifoweekd,
-      ifiweekd,
-      ofweekd,
-      osweekd,
-      otweekd,
-      ofoweekd,
-      ofiweekd,
-    } = this.state;
+    axios.get(`/financial/${id}`).then((res) => {
+      if (res.data.success) {
+        this.setState({
+          fId: res.data.financial.fId,
+          totalIncome: res.data.financial.totalIncome,
+          totalOutcome: res.data.financial.totalOutcome,
+          money: res.data.financial.money,
+          date: res.data.financial.date,
+          status: res.data.financial.status,
+          ifweek: res.data.financial.ifweek,
+          isweek: res.data.financial.isweek,
+          itweek: res.data.financial.itweek,
+          ifoweek: res.data.financial.ifoweek,
+          ifiweek: res.data.financial.ifiweek,
+          ofweek: res.data.financial.ofweek,
+          osweek: res.data.financial.osweek,
+          otweek: res.data.financial.otweek,
+          ofoweek: res.data.financial.ofoweek,
+          ofiweek: res.data.financial.ofiweek,
+          ifweekd: res.data.financial.ifweekd,
+          isweekd: res.data.financial.isweekd,
+          itweekd: res.data.financial.itweekd,
+          ifoweekd: res.data.financial.ifoweekd,
+          ifiweekd: res.data.financial.ifiweekd,
+          ofweekd: res.data.financial.ofweekd,
+          osweekd: res.data.financial.osweekd,
+          otweekd: res.data.financial.otweekd,
+          ofoweekd: res.data.financial.ofoweekd,
+          ofiweekd: res.data.financial.ofiweekd,
+        });
 
-    const data = {
-      fId: fId,
-      totalIncome: totalIncome,
-      totalOutcome: totalOutcome,
-      money: money,
-      date: date,
-      status: status,
-      ifweek: ifweek,
-      isweek: isweek,
-      itweek: itweek,
-      ifoweek: ifoweek,
-      ifiweek: ifiweek,
-      ofweek: ofweek,
-      osweek: osweek,
-      otweek: otweek,
-      ofoweek: ofoweek,
-      ofiweek: ofiweek,
-      ifweekd: ifweekd,
-      isweekd: isweekd,
-      itweekd: itweekd,
-      ifoweekd: ifoweekd,
-      ifiweekd: ifiweekd,
-      ofweekd: ofweekd,
-      osweekd: osweekd,
-      otweekd: otweekd,
-      ofoweekd: ofoweekd,
-      ofiweekd: ofiweekd,
-    };
-    console.log(data);
-
-    this.setState({
-      fId: "",
-      totalIncome: "",
-      totalOutcome: "",
-      money: "",
-      date: "",
-      status: "",
-      ifweek: "",
-      isweek: "",
-      itweek: "",
-      ifoweek: "",
-      ifiweek: "",
-      ofweek: "",
-      osweek: "",
-      otweek: "",
-      ofoweek: "",
-      ifweekd: "",
-      isweekd: "",
-      itweekd: "",
-      ifoweekd: "",
-      ifiweekd: "",
-      ofweekd: "",
-      osweekd: "",
-      otweekd: "",
-      ofoweekd: "",
-      ofiweekd: "",
+        console.log(this.state.financial);
+      }
     });
-  };
+  }
 
   render() {
     const { formErrors } = this.state;
@@ -624,7 +437,7 @@ export default class AddFinancialDetails extends Component {
           <center>
             <h1>
               <span class="badge bg-info text-dark opacity-90 fs-1">
-                Add Financial Details
+                Edit Financial Details
               </span>
             </h1>
           </center>
@@ -637,7 +450,7 @@ export default class AddFinancialDetails extends Component {
                 backgroundColor: "rgba(52, 52, 52, 0.4)",
               }}
             >
-              <div className="col-md-9 mt-4 mx-auto">
+              <div className="col-md-8 mt-4 mx-auto">
                 <br />
                 <form>
                   <div className="form-group" style={{ marginBottom: "15px" }}>
@@ -651,6 +464,7 @@ export default class AddFinancialDetails extends Component {
                       placeholder=""
                       value={this.state.date}
                       onChange={this.handleInputChange}
+                      readOnly
                     />
                   </div>
                   <div className="form-group" style={{ marginBottom: "15px" }}>
@@ -664,7 +478,6 @@ export default class AddFinancialDetails extends Component {
                     </label>
                     <br />
                     <button
-                      id="Id"
                       className="btn btn-dark"
                       type="submit"
                       style={{ marginTop: "15px" }}
@@ -682,6 +495,7 @@ export default class AddFinancialDetails extends Component {
                       placeholder="EX:Fxxxxxxx"
                       value={this.state.fId}
                       onChange={this.handleInputChange}
+                      readOnly
                     />
                   </div>
                   <div className="form-group" style={{ marginBottom: "15px" }}>
@@ -1001,16 +815,17 @@ export default class AddFinancialDetails extends Component {
                     </div>
                   </div>
                   <div style={{ display: "flex" }}>
-                    <div style={{ display: "table-column" }}>
+                    <div
+                      style={{ display: "table-column", marginRight: "45px" }}
+                    >
                       <button
-                        id="income cal"
                         className="btn btn-dark"
                         type="submit"
                         style={{ marginTop: "15px", marginBottom: "15px" }}
                         onClick={this.theTotalIncome}
                       >
                         <i className="far far-check-square"></i>
-                        Calculate Total Income
+                        &nbsp; Calculate Total Income
                       </button>
                       <br />
                       <div
@@ -1024,23 +839,21 @@ export default class AddFinancialDetails extends Component {
                           placeholder=""
                           value={this.state.totalIncome}
                           onChange={this.handleInputChange}
-                          readOnly
                         />
                       </div>
                     </div>
                     <div style={{ display: "flex" }}>
                       <div
-                        style={{ display: "table-column", marginLeft: "150px" }}
+                        style={{ display: "table-column", marginLeft: "115px" }}
                       >
                         <button
-                          id="outcome cal"
                           className="btn btn-dark"
                           type="submit"
                           style={{ marginTop: "15px", marginBottom: "15px" }}
                           onClick={this.theTotalOutcome}
                         >
                           <i className="far far-check-square"></i>
-                          Calculate Total Outcome
+                          &nbsp; Calculate Total Outcome
                         </button>
                         <br />
                         <div
@@ -1054,14 +867,11 @@ export default class AddFinancialDetails extends Component {
                             placeholder=""
                             value={this.state.totalOutcome}
                             onChange={this.handleInputChange}
-                            readOnly
                           />
                         </div>
                       </div>
                     </div>
                   </div>
-                  <br />
-                  <br />
                   <div className="form-group" style={{ marginBottom: "15px" }}>
                     <label style={{ marginBottom: "5px", color: "black" }}>
                       <h4>
@@ -1073,7 +883,6 @@ export default class AddFinancialDetails extends Component {
                     <br />
                     <div style={{ display: "flex" }}>
                       <button
-                        id="total amount"
                         className="btn btn-dark"
                         type="submit"
                         style={{ marginTop: "15px" }}
@@ -1095,14 +904,12 @@ export default class AddFinancialDetails extends Component {
                           placeholder="RS XXXX.XX"
                           value={this.state.money}
                           onChange={this.handleInputChange}
-                          readOnly
                         />
                       </div>
                     </div>
                   </div>
                   <div style={{ display: "flex" }}>
                     <button
-                      id="status"
                       className="btn btn-dark"
                       type="submit"
                       style={{
@@ -1130,34 +937,14 @@ export default class AddFinancialDetails extends Component {
                     </div>
                   </div>
                   <button
-                    className="btn btn-danger"
-                    type="submit"
-                    style={{ marginTop: "15px" }}
-                    onClick={this.btnReset}
-                  >
-                    <i className="far far-check-square"></i>
-                    &nbsp; Reset All
-                  </button>
-                  &nbsp;&nbsp;
-                  <button
-                    id="submit"
                     className="btn btn-success"
                     type="submit"
                     style={{ marginTop: "15px" }}
                     onClick={this.onSubmit}
                   >
                     <i className="far far-check-square"></i>
-                    &nbsp; Submit
+                    &nbsp; Update
                   </button>
-                  <button
-                    className="btn btn-warning"
-                    type="submit"
-                    style={{ marginTop: "15px", marginLeft: "300px" }}
-                    onClick={this.btnDemo}
-                  >
-                    <i className="far far-check-square"></i>
-                    &nbsp; <b>Demo</b>
-                  </button>{" "}
                   <br /> <br />
                   <br />
                   <br />

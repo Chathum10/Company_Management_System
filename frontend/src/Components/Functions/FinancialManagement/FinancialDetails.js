@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import axios from "axios";
+
 import {
   MDBCard,
   MDBCardBody,
@@ -99,20 +101,14 @@ export default class FinancialDetails extends Component {
                 <th scope="col">Total Outcome</th>
                 <th scope="col">Profit or Loss</th>
                 <th scope="col">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
               {this.state.financial.map((financial, index) => (
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
-                  <td class="table-light">
-                    <a
-                      href={`/financial/${financial._id}`}
-                      style={{ textDecoration: "none" }}
-                    >
-                      {financial.fId}
-                    </a>
-                  </td>
+                  <td class="table-light">{financial.fId}</td>
 
                   <td class="table-light">{financial.date}</td>
                   <td class="table-light">{financial.totalIncome}</td>
@@ -120,6 +116,34 @@ export default class FinancialDetails extends Component {
                   <td class="table-light">{financial.money}</td>
 
                   <td class="table-light">{financial.status}</td>
+                  <td class="table-light">
+                    <a
+                      className="btn btn-warning"
+                      href={`/financial/${financial._id}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      &nbsp;Review
+                    </a>
+                    &nbsp;
+                    <a
+                      className="btn btn-warning"
+                      href={`/EditFinancialDetails/${financial._id}`}
+                    >
+                      &nbsp;Edit
+                    </a>
+                    &nbsp;
+                    <a
+                      className="btn btn-danger"
+                      href="#"
+                      onClick={() =>
+                        window.confirm(
+                          "Are You Sure You Want To Delete This financial statement ?"
+                        ) && this.onDelete(financial._id)
+                      }
+                    >
+                      &nbsp;Delete
+                    </a>
+                  </td>
                 </tr>
               ))}
             </tbody>

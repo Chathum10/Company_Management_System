@@ -66,6 +66,46 @@ const financialSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  ifweekd: {
+    type: String,
+    required: true,
+  },
+  isweekd: {
+    type: String,
+    required: true,
+  },
+  itweekd: {
+    type: String,
+    required: true,
+  },
+  ifoweekd: {
+    type: String,
+    required: true,
+  },
+  ifiweekd: {
+    type: String,
+    required: true,
+  },
+  ofweekd: {
+    type: String,
+    required: true,
+  },
+  osweekd: {
+    type: String,
+    required: true,
+  },
+  otweekd: {
+    type: String,
+    required: true,
+  },
+  ofoweekd: {
+    type: String,
+    required: true,
+  },
+  ofiweekd: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Financial", financialSchema);
