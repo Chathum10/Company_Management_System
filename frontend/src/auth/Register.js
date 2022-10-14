@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+
+
 const Register = (props) => {
   const [data, setData] = useState({
     name: "",
@@ -9,11 +11,15 @@ const Register = (props) => {
     error: null,
   });
 
+
   const { name, email, password, error } = data;
+
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,11 +34,13 @@ const Register = (props) => {
           },
         }
       );
+
       props.history.push("/login");
     } catch (err) {
       setData({ ...data, error: err.response.data.error });
     }
   };
+
 
   return (
     <div className="row">
@@ -85,5 +93,6 @@ const Register = (props) => {
     </div>
   );
 };
+
 
 export default Register;

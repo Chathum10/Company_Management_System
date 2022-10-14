@@ -1,6 +1,5 @@
 const express = require("express");
 const Financial = require("../models/financial");
-
 const router = express.Router();
 
 //save Financial details
@@ -14,13 +13,16 @@ router.post("/financial/save", (req, res) => {
         error: err,
       });
     }
+
     return res.status(200).json({
       success: "financial details saved successfully",
     });
   });
 });
 
+
 //get financial details
+
 
 router.get("/financial", (req, res) => {
   Financial.find().exec((err, financial) => {
@@ -36,7 +38,10 @@ router.get("/financial", (req, res) => {
   });
 });
 
+
 //get a specific financial detail
+
+
 
 router.get("/financial/:id", (req, res) => {
   let financialId = req.params.id;
@@ -53,7 +58,11 @@ router.get("/financial/:id", (req, res) => {
   });
 });
 
+
+
 //update  financial details
+
+
 
 router.put("/financial/update/:id", (req, res) => {
   Financial.findByIdAndUpdate(
@@ -73,7 +82,11 @@ router.put("/financial/update/:id", (req, res) => {
   );
 });
 
+
+
 //delete  financial details
+
+
 
 router.delete("/financial/delete/:id", (req, res) => {
   Financial.findByIdAndRemove(req.params.id).exec((err, deleteFinancial) => {
@@ -84,7 +97,9 @@ router.delete("/financial/delete/:id", (req, res) => {
       });
 
     return res.json({
+
       message: "delete Successfully",
+
       deleteFinancial,
     });
   });

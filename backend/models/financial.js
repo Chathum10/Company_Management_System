@@ -108,4 +108,5 @@ const financialSchema = new mongoose.Schema({
   },
 });
 
+
 module.exports = mongoose.model("Financial", financialSchema);

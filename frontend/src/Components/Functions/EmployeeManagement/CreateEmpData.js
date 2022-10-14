@@ -6,6 +6,7 @@ const emailRegex = RegExp(
     /^[a-z0-9.!#$%&â€™+/=?^_`{|}~-]+@[a-z0-9-]+(?:\.[a-z0-9-]+)$/
 );
 
+
 const phoneRegex = RegExp(
     /^[0-9]{10,15}$/
 );
@@ -13,6 +14,7 @@ const phoneRegex = RegExp(
 const charRegex = RegExp(
     /^[a-zA-Z]{1,50}$/
 );
+
 
 const nicRegex = RegExp(
     /^[0-9+v]{10,12}$/
@@ -26,7 +28,6 @@ const formValid = formErrors => {
     });
     return valid;
 };
-
 
 export default class CreateEmpData extends Component {
 
@@ -102,7 +103,6 @@ export default class CreateEmpData extends Component {
         const { name, nic, gender, contactNo, email, empId, joinDate, dueDate, dept, designation } = this.state;
 
         const data = {
-
             name: name,
             nic: nic,
             contactNo: contactNo,
@@ -113,7 +113,6 @@ export default class CreateEmpData extends Component {
             dueDate: dueDate,
             dept: dept,
             designation: designation
-
 
         }
         console.log(data)
@@ -137,6 +136,8 @@ export default class CreateEmpData extends Component {
     }
 
 
+
+
     btnReset = (e) => {
         e.preventDefault();
 
@@ -156,6 +157,7 @@ export default class CreateEmpData extends Component {
             designation: designation
 
 
+            
         }
         console.log(data)
 

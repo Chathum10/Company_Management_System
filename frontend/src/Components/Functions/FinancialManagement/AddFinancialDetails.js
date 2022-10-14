@@ -13,6 +13,7 @@ const formValid = (formErrors) => {
   return valid;
 };
 
+
 export default class AddFinancialDetails extends Component {
   constructor(props) {
     super(props);
@@ -44,6 +45,7 @@ export default class AddFinancialDetails extends Component {
       ofoweekd: "",
       ofiweekd: "",
 
+
       formErrors: {
         ifweek: "",
         isweek: "",
@@ -69,6 +71,7 @@ export default class AddFinancialDetails extends Component {
     };
   }
 
+  
   handleInputChange = (e) => {
     const { name, value } = e.target;
 
