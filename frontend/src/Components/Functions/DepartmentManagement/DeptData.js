@@ -93,7 +93,7 @@ export default class DepData extends Component {
                   <th scope="col">Department Name</th>
                   <th scope="col">Department Information</th>
                   <th scope="col">Department Head Infomation</th>
-                  <th scope="col">Total Count</th>
+                  <th scope="col">Total Employees</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -130,7 +130,7 @@ export default class DepData extends Component {
                       <br />
                       <a
                         className="btn btn-success"
-                        href={`#/${departments._id}`}
+                        href={`EmpCount/${departments._id}`}
                       >
                         &nbsp;Cal Emp Count
                       </a>

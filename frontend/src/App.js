@@ -28,6 +28,7 @@ import CreateDeptData from "./Components/Functions/DepartmentManagement/CreateDe
 import DeptData from "./Components/Functions/DepartmentManagement/DeptData";
 import EditDeptData from "./Components/Functions/DepartmentManagement/EditDeptData";
 import DeptReport from "./Components/Functions/DepartmentManagement/DeptReport";
+import EmpCount from "./Components/Functions/DepartmentManagement/EmpCount";
 
 //Financial Management
 import AddFinancialDetails from "./Components/Functions/FinancialManagement/AddFinancialDetails";
@@ -59,6 +60,7 @@ const App = () => {
         <Route path="/CreateDeptData" component={CreateDeptData} />
         <Route path="/DeptData" component={DeptData} />
         <Route path="/EditDeptData/:id" component={EditDeptData} />
+        <Route path="/EmpCount/:id" component={EmpCount} />
         <Route path="/DeptReport" component={DeptReport} />
 
         <Route path="/AddFinancialDetails" component={AddFinancialDetails} />
