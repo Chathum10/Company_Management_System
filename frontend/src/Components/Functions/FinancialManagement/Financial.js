@@ -152,16 +152,11 @@ export default class Financial extends Component {
               <MDBCardTitle>
                 <b>
                   {" "}
-                  <span class="badge bg-dark text-light opacity-90 fs-1">
-                    Financial Report 2022
-                  </span>
+                  <h4>Financial Report 2022</h4>
                 </b>
-
-                <br />
-                <br />
                 <b>White Light Pvt.Ltd </b>
-
-                <b>{}</b>
+                <br />
+                <br />
               </MDBCardTitle>
               <MDBTable small id="my-table1">
                 <MDBTableHead>
@@ -294,11 +289,16 @@ export default class Financial extends Component {
 
                   <tr>
                     <td>
-                      <b>Total Amount = Rs.{money}</b>
+                      <h5>
+                        <b>Total Amount = Rs.{money}</b>
+                      </h5>
                     </td>
                     <br />
                     <td>
-                      <b>Status = {status}</b>
+                      <h5>
+                        {" "}
+                        <b>Status = {status}</b>
+                      </h5>
                     </td>
                   </tr>
                 </MDBTableHead>

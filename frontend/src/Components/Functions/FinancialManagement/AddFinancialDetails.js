@@ -666,27 +666,34 @@ export default class AddFinancialDetails extends Component {
                       </h4>
                     </label>
                     <br />
-                    <button
-                      id="Id"
-                      className="btn btn-info"
-                      type="submit"
-                      style={{ marginTop: "15px" }}
-                      onClick={this.generateKey}
-                    >
-                      <i className="far far-check-square"></i>
-                      &nbsp; Generate ID
-                    </button>
-                    <br />
-                    <br />
-                    <input
-                      type="text"
-                      className="form-control"
-                      name="fId"
-                      placeholder="EX:Fxxxxxxx"
-                      value={this.state.fId}
-                      onChange={this.handleInputChange}
-                      readOnly
-                    />
+                    <div style={{ display: "flex" }}>
+                      <button
+                        id="Id"
+                        className="btn btn-info"
+                        type="submit"
+                        onClick={this.generateKey}
+                        style={{
+                          marginTop: "15px",
+                          marginBottom: "15px",
+                          width: "500px",
+                        }}
+                      >
+                        Generate ID
+                      </button>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input
+                        type="text"
+                        className="form-control"
+                        name="fId"
+                        placeholder="EX:Fxxxxxxx"
+                        value={this.state.fId}
+                        onChange={this.handleInputChange}
+                        style={{
+                          marginTop: "15px",
+                        }}
+                        readOnly
+                      />
+                    </div>
                   </div>
                   <div className="form-group" style={{ marginBottom: "15px" }}>
                     <label style={{ marginBottom: "5px", color: "black" }}>
@@ -701,7 +708,7 @@ export default class AddFinancialDetails extends Component {
                     <div style={{ display: "flex" }}>
                       <div style={{ display: "table-column" }}>
                         <label style={{ marginBottom: "5px", color: "black" }}>
-                          Week 01
+                          <b> Week 01</b>
                         </label>
                         <br />
                         <input
@@ -730,7 +737,7 @@ export default class AddFinancialDetails extends Component {
                       &nbsp;&nbsp;
                       <div style={{ display: "table-column" }}>
                         <label style={{ marginBottom: "5px", color: "black" }}>
-                          Week 02
+                          <b>Week 02</b>
                         </label>
                         <br />
                         <input
@@ -759,7 +766,7 @@ export default class AddFinancialDetails extends Component {
                       &nbsp;&nbsp;
                       <div style={{ display: "table-column" }}>
                         <label style={{ marginBottom: "5px", color: "black" }}>
-                          Week 03
+                          <b>Week 03</b>
                         </label>
                         <br />
                         <input
@@ -788,7 +795,7 @@ export default class AddFinancialDetails extends Component {
                       &nbsp;&nbsp;
                       <div style={{ display: "table-column" }}>
                         <label style={{ marginBottom: "5px", color: "black" }}>
-                          Week 04
+                          <b>Week 04</b>
                         </label>
                         <br />
                         <input
@@ -817,7 +824,7 @@ export default class AddFinancialDetails extends Component {
                       &nbsp;&nbsp;
                       <div style={{ display: "table-column" }}>
                         <label style={{ marginBottom: "5px", color: "black" }}>
-                          Week 05
+                          <b>Week 05</b>
                         </label>
                         <br />
                         <input
@@ -860,7 +867,7 @@ export default class AddFinancialDetails extends Component {
                     <div style={{ display: "flex" }}>
                       <div style={{ display: "table-column" }}>
                         <label style={{ marginBottom: "5px", color: "black" }}>
-                          Week 01
+                          <b>Week 01</b>
                         </label>
                         <br />
                         <input
@@ -889,7 +896,7 @@ export default class AddFinancialDetails extends Component {
                       &nbsp;&nbsp;
                       <div style={{ display: "table-column" }}>
                         <label style={{ marginBottom: "5px", color: "black" }}>
-                          Week 02
+                          <b>Week 02</b>
                         </label>
                         <br />
                         <input
@@ -918,7 +925,7 @@ export default class AddFinancialDetails extends Component {
                       &nbsp;&nbsp;
                       <div style={{ display: "table-column" }}>
                         <label style={{ marginBottom: "5px", color: "black" }}>
-                          Week 03
+                          <b>Week 03</b>
                         </label>
                         <br />
                         <input
@@ -947,7 +954,7 @@ export default class AddFinancialDetails extends Component {
                       &nbsp;&nbsp;
                       <div style={{ display: "table-column" }}>
                         <label style={{ marginBottom: "5px", color: "black" }}>
-                          Week 04
+                          <b>Week 04</b>
                         </label>
                         <br />
                         <input
@@ -976,7 +983,7 @@ export default class AddFinancialDetails extends Component {
                       &nbsp;&nbsp;
                       <div style={{ display: "table-column" }}>
                         <label style={{ marginBottom: "5px", color: "black" }}>
-                          Week 05
+                          <b>Week 05</b>
                         </label>
                         <br />
                         <input
@@ -1024,7 +1031,7 @@ export default class AddFinancialDetails extends Component {
                           type="text"
                           className="form-control"
                           name="totalIncome"
-                          placeholder=""
+                          placeholder="Total Income(Rs)"
                           value={this.state.totalIncome}
                           onChange={this.handleInputChange}
                           readOnly
@@ -1053,7 +1060,7 @@ export default class AddFinancialDetails extends Component {
                             type="text"
                             className="form-control"
                             name="totalOutcome"
-                            placeholder=""
+                            placeholder="Total Outcome(Rs)"
                             value={this.state.totalOutcome}
                             onChange={this.handleInputChange}
                             readOnly
@@ -1078,10 +1085,13 @@ export default class AddFinancialDetails extends Component {
                         id="total amount"
                         className="btn btn-info"
                         type="submit"
-                        style={{ marginTop: "15px" }}
+                        style={{
+                          marginTop: "15px",
+                          marginBottom: "15px",
+                          width: "200px",
+                        }}
                         onClick={this.totPayble}
                       >
-                        <i className="far far-check-square"></i>
                         &nbsp; Calculate Total Amount
                       </button>
 
@@ -1109,23 +1119,23 @@ export default class AddFinancialDetails extends Component {
                       type="submit"
                       style={{
                         marginTop: "15px",
-                        marginRight: "25px",
+                        marginBottom: "15px",
+                        width: "200px",
                       }}
                       onClick={this.theStatus}
                     >
-                      
                       View Status
                     </button>
-
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div
                       className="form-group"
-                      style={{ marginTop: "15px", marginLeft: "225px" }}
+                      style={{ marginTop: "15px", width: "208px" }}
                     >
                       <input
                         type="text"
                         className="form-control"
                         name="status"
-                        placeholder=""
+                        placeholder="Profit/Loss"
                         value={this.state.status}
                         onChange={this.handleInputChange}
                         readOnly
