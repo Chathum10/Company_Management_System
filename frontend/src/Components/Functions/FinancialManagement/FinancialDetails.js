@@ -46,9 +46,8 @@ export default class FinancialDetails extends Component {
   filterData(financial, searchKey) {
     const result = financial.filter(
       (financial) =>
-        financial.fID.toLowerCase().includes(searchKey) ||
-        financial.date.toLowerCase().includes(searchKey) ||
-        financial.status.toLowerCase().includes(searchKey)
+        financial.status.toLowerCase().includes(searchKey) ||
+        financial.fId.toLowerCase().includes(searchKey)
     );
 
     this.setState({ financial: result });
@@ -69,23 +68,27 @@ export default class FinancialDetails extends Component {
       <div className="back fixed" style={{ zIndex: 8 }}>
         <div className="hc">
           <br />
-          <div style={{ width: "20%", marginLeft: "80%" }}>
-            <form className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                onChange={this.handleSearchArea}
-              ></input>
-            </form>
-          </div>
+          <a className="btn btn-warning text-dark " href="/home">
+            <b>Dashboard</b>
+          </a>
+
           <div id="containerJoin">
             <center>
               <h1 className="gifJoin">All financial details</h1>
             </center>
           </div>
           <br />
+          <div style={{ width: "20%", marginLeft: "70%" }}>
+            <form className="d-flex">
+              <input
+                className="form-control me-2"
+                type="search"
+                placeholder="Search "
+                aria-label="Search"
+                onChange={this.handleSearchArea}
+              ></input>
+            </form>
+          </div>
           <h3>
             <span class="badge bg-info text-dark opacity-90 ">
               Financial Information

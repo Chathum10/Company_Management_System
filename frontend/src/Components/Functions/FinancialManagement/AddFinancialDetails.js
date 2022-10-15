@@ -13,7 +13,6 @@ const formValid = (formErrors) => {
   return valid;
 };
 
-
 export default class AddFinancialDetails extends Component {
   constructor(props) {
     super(props);
@@ -45,7 +44,6 @@ export default class AddFinancialDetails extends Component {
       ofoweekd: "",
       ofiweekd: "",
 
-
       formErrors: {
         ifweek: "",
         isweek: "",
@@ -71,7 +69,6 @@ export default class AddFinancialDetails extends Component {
     };
   }
 
-  
   handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -503,22 +500,22 @@ export default class AddFinancialDetails extends Component {
 
     this.setState({
       date: "July 2022",
-      ifweek: "1000000",
+      ifweek: "400000",
       isweek: "1500000",
       itweek: "2000000",
       ifoweek: "500000",
       ifiweek: "500000",
       ofweek: "20000",
       osweek: "100000",
-      otweek: "45000",
+      otweek: "300000",
       ofoweek: "75000",
       ofiweek: "21000",
-      ifweekd: "Stageclip proj",
-      isweekd: "flash project",
+      ifweekd: "Dialog app",
+      isweekd: "flash health",
       itweekd: "NLP project",
-      ifoweekd: "Banthom Proj",
-      ifiweekd: "Metavisionary",
-      ofweekd: "Cost of server",
+      ifoweekd: "CK Pvt.ltd",
+      ifiweekd: "Boc app",
+      ofweekd: "Server cost",
       osweekd: "office party",
       otweekd: "sallaries",
       ofoweekd: "internet bill",
@@ -685,6 +682,7 @@ export default class AddFinancialDetails extends Component {
                       placeholder="EX:Fxxxxxxx"
                       value={this.state.fId}
                       onChange={this.handleInputChange}
+                      readOnly
                     />
                   </div>
                   <div className="form-group" style={{ marginBottom: "15px" }}>
@@ -1012,7 +1010,6 @@ export default class AddFinancialDetails extends Component {
                         style={{ marginTop: "15px", marginBottom: "15px" }}
                         onClick={this.theTotalIncome}
                       >
-                        <i className="far far-check-square"></i>
                         Calculate Total Income
                       </button>
                       <br />
@@ -1042,7 +1039,6 @@ export default class AddFinancialDetails extends Component {
                           style={{ marginTop: "15px", marginBottom: "15px" }}
                           onClick={this.theTotalOutcome}
                         >
-                          <i className="far far-check-square"></i>
                           Calculate Total Outcome
                         </button>
                         <br />
@@ -1129,6 +1125,7 @@ export default class AddFinancialDetails extends Component {
                         placeholder=""
                         value={this.state.status}
                         onChange={this.handleInputChange}
+                        readOnly
                       />
                     </div>
                   </div>
