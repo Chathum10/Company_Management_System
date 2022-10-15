@@ -7,6 +7,7 @@ const emailRegex = RegExp(
 );
 
 const phoneRegex = RegExp(/^[0-9]{10,15}$/);
+const noRegex = RegExp(/^[1-5]{1}$/);
 
 const formValid = (formErrors) => {
   let valid = true;
@@ -35,6 +36,7 @@ export default class EditProjectData extends Component {
       formErrors: {
         email: "",
         contactNo: "",
+        pLevel: ""
       },
     };
   }
@@ -55,6 +57,11 @@ export default class EditProjectData extends Component {
           ? ""
           : "invalid contact number";
         break;
+      case "pLevel":
+          formErrors.pLevel = noRegex.test(value)
+            ? ""
+            : "invalid priority level";
+          break;
       default:
         break;
     }
@@ -203,7 +210,6 @@ export default class EditProjectData extends Component {
                     </label>
                     <input
                       type="text"
-                      readOnly
                       className="form-control"
                       name="email"
                       placeholder="Enter valid Email"
@@ -221,7 +227,6 @@ export default class EditProjectData extends Component {
                     </label>
                     <input
                       type="text"
-                      readOnly
                       className="form-control"
                       name="contactNo"
                       placeholder="Enter Valid Contact Number (EX:94xxxxxxxxx)"
@@ -267,7 +272,7 @@ export default class EditProjectData extends Component {
                       type="text"
                       className="form-control"
                       name="description"
-                      placeholder="(Optional)"
+                      placeholder=""
                       value={this.state.description}
                       onChange={this.handleInputChange}
                     />
@@ -278,6 +283,7 @@ export default class EditProjectData extends Component {
                       <b>Assign To</b>
                     </label>
                     <select
+                      disabled
                       name="dept"
                       value={this.state.dept}
                       onChange={this.handleInputChange}
@@ -288,18 +294,12 @@ export default class EditProjectData extends Component {
                       <option value="Intelligent Automation">
                         Intelligent Automation
                       </option>
-                      <option value="Canada">Canada</option>
-                      <option value="China">China</option>
-                      <option value="Dubai">Dubai</option>
-                      <option value="India">India</option>
-                      <option value="Japan">Japan</option>
-                      <option value="Korea">Korea</option>
-                      <option value="Laos">Laos</option>
-                      <option value="Maldives">Maldives</option>
-                      <option value="Sri Lanka">Sri Lanka</option>
-                      <option value="Thailand">Thailand</option>
-                      <option value="United Kingdom">United Kingdom</option>
-                      <option value="Other">Other</option>
+                      <option value="Network Department">Network Department</option>
+                      <option value="Cyber Security Department">Cyber Security Department</option>
+                      <option value="Software Department">Software Department</option>
+                      <option value="SAP Department">SAP Department</option>
+                      <option value="Bussiness Intelligent Department">Bussiness Intelligent Department</option>
+                      <option value="Bussiness Analyst Department">Bussiness Analyst Department</option>
                     </select>
                   </div>
 
@@ -315,6 +315,9 @@ export default class EditProjectData extends Component {
                       value={this.state.pLevel}
                       onChange={this.handleInputChange}
                     />
+                     {formErrors.pLevel.length > 0 && (
+                      <span style={{ color: "red" }}>{formErrors.pLevel}</span>
+                    )}
                   </div>
 
                   <div class="form-outline mb-4">

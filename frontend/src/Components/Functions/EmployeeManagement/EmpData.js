@@ -94,7 +94,7 @@ export default class EmpData extends Component {
                   <th scope="col">Name</th>
                   <th scope="col">Personal Information</th>
                   <th scope="col">Employment</th>
-                  <th scope="col">Performance (out of 10)</th>
+                  <th scope="col">Average Performance (out of 10)</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -127,7 +127,6 @@ export default class EmpData extends Component {
                     <td class="table-light">
                       <b>{employee.performance}</b>
                       <br />
-                      <br />
                       <a
                         className="btn btn-dark"
                         href={`/Performance/${employee._id}`}
@@ -141,7 +140,7 @@ export default class EmpData extends Component {
                         className="btn btn-dark"
                         href={`/EditEmpData/${employee._id}`}
                       >
-                        &nbsp;Edit
+                      <i class="fa fa-edit fa-2x"></i>
                       </a>
                       &nbsp;
                       <a
@@ -149,11 +148,11 @@ export default class EmpData extends Component {
                         href="#"
                         onClick={() =>
                           window.confirm(
-                            "Are You Sure You Want To Delete This User Profile ?"
+                            "Are You Sure You Want To Delete This Employee ?"
                           ) && this.onDelete(employee._id)
                         }
                       >
-                        &nbsp;Delete
+                        <i class="fa fa-trash-o fa-2x"></i>
                       </a>
                     </td>
                   </tr>

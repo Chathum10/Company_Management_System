@@ -36,7 +36,8 @@ export default class DepData extends Component {
 
   filterData(departments, searchKey) {
     const result = departments.filter((post) =>
-      post.dCategory.toLowerCase().includes(searchKey)
+      post.dCategory.toLowerCase().includes(searchKey)||
+      post.dName.toLowerCase().includes(searchKey)
     );
 
     this.setState({ departments: result });
@@ -119,7 +120,7 @@ export default class DepData extends Component {
                     </td>
 
                     <td class="table-light">
-                      {departments.total}
+                      <b>{departments.total}</b>
                       <br />
                       <a
                         className="btn btn-dark"
@@ -134,7 +135,7 @@ export default class DepData extends Component {
                         className="btn btn-dark"
                         href={`EditDeptData/${departments._id}`}
                       >
-                        &nbsp;Edit
+                       <i class="fa fa-edit fa-2x"></i>
                       </a>
                       &nbsp;
                       <a
@@ -146,7 +147,7 @@ export default class DepData extends Component {
                           ) && this.onDelete(departments._id)
                         }
                       >
-                        &nbsp;Delete
+                         <i class="fa fa-trash-o fa-2x"></i>
                       </a>
                     </td>
                   </tr>

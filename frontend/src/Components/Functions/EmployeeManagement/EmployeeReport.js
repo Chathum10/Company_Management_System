@@ -25,7 +25,7 @@ export default class EmployeeReport extends Component {
 
         doc.setFontSize(12);
         var fileTitle2 = "Employee Details Report 2022";
-        var img = "https://i.ibb.co/x85V3CN/Screenshot-32.png";
+        var img = "https://i.ibb.co/syhgL0G/Microsoft-Teams-image-1.png";
         doc.text(fileTitle2, 15, 40);
         doc.addImage(img, "JPEG", 0, 0, 210, 30);
 
@@ -124,7 +124,7 @@ export default class EmployeeReport extends Component {
 
           <div id="containerJoin">
             <center>
-              <h1 className="gifJoin">All Employees</h1>
+              <h1 className="gifJoin">Employee Information Report</h1>
             </center>
           </div>
           <div style={{ width: "20%", marginLeft: "70%" }}>

@@ -1068,7 +1068,7 @@ export default class AddFinancialDetails extends Component {
                     <label style={{ marginBottom: "5px", color: "black" }}>
                       <h4>
                         <span class="badge bg-dark text-light opacity-90 fs-1">
-                          Total Profit or Loss Amount (Rupees)
+                          Total Profit or Loss Amount (LKR)
                         </span>
                       </h4>
                     </label>
@@ -1113,7 +1113,7 @@ export default class AddFinancialDetails extends Component {
                       }}
                       onClick={this.theStatus}
                     >
-                      <i className="far far-check-square"></i>
+                      
                       View Status
                     </button>
 
@@ -1153,7 +1153,7 @@ export default class AddFinancialDetails extends Component {
                     &nbsp; Submit
                   </button>
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-warning"
                     type="submit"
                     style={{ marginTop: "15px", marginLeft: "300px" }}
                     onClick={this.btnDemo}

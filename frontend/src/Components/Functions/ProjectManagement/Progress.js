@@ -281,7 +281,7 @@ export default class Progress extends Component {
 
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example3">
-                      <b>Task 01</b>
+                      <b>Planning</b>
                     </label>
                     <select
                       name="t1"
@@ -301,7 +301,7 @@ export default class Progress extends Component {
 
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example3">
-                      <b>Task 02</b>
+                      <b>Design & analysis</b>
                     </label>
                     <select
                       name="t2"
@@ -321,7 +321,7 @@ export default class Progress extends Component {
 
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example3">
-                      <b>Task 03</b>
+                      <b>Development</b>
                     </label>
                     <select
                       name="t3"
@@ -341,7 +341,7 @@ export default class Progress extends Component {
 
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example3">
-                      <b>Task 04</b>
+                      <b>Testing</b>
                     </label>
                     <select
                       name="t4"
@@ -361,7 +361,7 @@ export default class Progress extends Component {
 
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example3">
-                      <b>Task 05</b>
+                      <b>Implementation & Maintenance</b>
                     </label>
                     <select
                       name="t5"
@@ -417,7 +417,7 @@ export default class Progress extends Component {
                       onClick={this.onSubmit}
                     >
                       <i className="far far-check-square"></i>
-                      &nbsp; ADD Progress
+                      &nbsp; Add Progress
                     </button>
                   </center>
                   <br />

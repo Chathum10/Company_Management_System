@@ -25,7 +25,7 @@ export default class ProjectReport extends Component {
 
         doc.setFontSize(12);
         var fileTitle2 = "Project Details Report 2022";
-        var img = "https://i.ibb.co/g3q0Hc1/we.jpg";
+        var img = "https://i.ibb.co/syhgL0G/Microsoft-Teams-image-1.png";
         doc.text(fileTitle2, 15, 40);
         doc.addImage(img, "JPEG", 0, 0, 210, 30);
 
@@ -85,8 +85,8 @@ export default class ProjectReport extends Component {
   filterData(projects, searchKey) {
     const result = projects.filter(
       (post) =>
-        post.projectId.toLowerCase().includes(searchKey) ||
-        post.pLevel.toLowerCase().includes(searchKey)
+      post.pLevel.toLowerCase().includes(searchKey) ||
+      post.cName.toLowerCase().includes(searchKey)
     );
 
     this.setState({ projects: result });
@@ -113,7 +113,7 @@ export default class ProjectReport extends Component {
 
           <div id="containerJoin">
             <center>
-              <h1 className="gifJoin">All Projects</h1>
+              <h1 className="gifJoin">Projects Information Report</h1>
             </center>
           </div>
 
@@ -189,11 +189,11 @@ export default class ProjectReport extends Component {
             <div>
               <center>
                 <a
-                  className="btn btn-warning text-dark "
+                  className="btn btn-dark text-light "
                   onClick={this.createPdf}
                 >
                   <b>Download PDF</b> &nbsp;
-                  <MDBIcon far icon="file-pdf" size="2x" />
+                 
                 </a>
               </center>
             </div>

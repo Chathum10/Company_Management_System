@@ -74,7 +74,7 @@ export default class FinancialDetails extends Component {
 
           <div id="containerJoin">
             <center>
-              <h1 className="gifJoin">All financial details</h1>
+              <h1 className="gifJoin">Financial Details</h1>
             </center>
           </div>
           <br />
@@ -83,7 +83,7 @@ export default class FinancialDetails extends Component {
               <input
                 className="form-control me-2"
                 type="search"
-                placeholder="Search "
+                placeholder="Search by Month"
                 aria-label="Search"
                 onChange={this.handleSearchArea}
               ></input>
@@ -103,6 +103,7 @@ export default class FinancialDetails extends Component {
                 <th scope="col">Total Outcome</th>
                 <th scope="col">Profit or Loss</th>
                 <th scope="col">Status</th>
+                <th scope="col">Review</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -118,19 +119,22 @@ export default class FinancialDetails extends Component {
 
                   <td class="table-light">{financial.status}</td>
                   <td class="table-light">
-                    <a
+                  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                  <a
                       className="btn btn-dark"
                       href={`/financial/${financial._id}`}
                       style={{ textDecoration: "none" }}
                     >
-                      &nbsp;Review
+                     <i class="fa fa-eye fa-2x"></i>
                     </a>
-                    &nbsp;
+                  </td>
+                  <td class="table-light">
+                  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
                     <a
                       className="btn btn-dark"
                       href={`/EditFinancialDetails/${financial._id}`}
                     >
-                      &nbsp;Edit
+                    <i class="fa fa-edit fa-2x"></i>
                     </a>
                     &nbsp;
                     <a
@@ -142,7 +146,7 @@ export default class FinancialDetails extends Component {
                         ) && this.onDelete(financial._id)
                       }
                     >
-                      &nbsp;Delete
+                      <i class="fa fa-trash-o fa-2x"></i>
                     </a>
                   </td>
                 </tr>

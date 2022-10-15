@@ -8,7 +8,7 @@ const emailRegex = RegExp(
 
 const phoneRegex = RegExp(/^[0-9]{10,15}$/);
 
-const charRegex = RegExp(/^[a-zA-Z]{1,50}$/);
+const charRegex = RegExp(/^[a-zA-Z]\s{1,50}$/);
 
 const nicRegex = RegExp(/^[0-9+v]{10,12}$/);
 
@@ -62,7 +62,7 @@ export default class CreateEmpData extends Component {
           : "invalid contact number";
         break;
       case "nic":
-        formErrors.nic = nicRegex.test(value) ? "" : "invalid Nic number";
+        formErrors.nic = nicRegex.test(value) ? "" : "invalid NIC number";
         break;
       case "name":
         formErrors.name = charRegex.test(value) ? "" : "invalid name!";
@@ -128,7 +128,7 @@ export default class CreateEmpData extends Component {
     console.log(data);
 
     this.setState({
-      name: "C.D.Adhihetty",
+      name: "Chathum Adhihetty",
       nic: "200009602428",
       gender: "Male",
       contactNo: "0773825110",
@@ -286,15 +286,10 @@ export default class CreateEmpData extends Component {
                           type="text"
                           className="form-control"
                           name="name"
-                          placeholder="Name with Initials"
+                          placeholder="Full name"
                           value={this.state.name}
                           onChange={this.handleInputChange}
                         />
-                        {formErrors.name.length != 10 && (
-                          <span style={{ color: "red" }}>
-                            {formErrors.name}
-                          </span>
-                        )}
                       </div>
 
                       <div class="form-outline mb-4">
@@ -316,7 +311,7 @@ export default class CreateEmpData extends Component {
 
                       <div class="form-outline mb-4">
                         <label style={{ marginBottom: "5px" }}>
-                          <b>Select A Gender</b>
+                          <b>Select Gender</b>
                         </label>
                         <br />
                         <select
@@ -451,18 +446,15 @@ export default class CreateEmpData extends Component {
                           <option value="Intelligent Automation">
                             Intelligent Automation
                           </option>
-                          <option value="Canada">Canada</option>
-                          <option value="China">China</option>
-                          <option value="Dubai">Dubai</option>
-                          <option value="India">India</option>
-                          <option value="Japan">Japan</option>
-                          <option value="Korea">Korea</option>
-                          <option value="Laos">Laos</option>
-                          <option value="Maldives">Maldives</option>
-                          <option value="Sri Lanka">Sri Lanka</option>
-                          <option value="Thailand">Thailand</option>
-                          <option value="United Kingdom">United Kingdom</option>
-                          <option value="Other">Other</option>
+                          <option value="HR Department">HR Department</option>
+                          <option value="Financial Department">Financial Department</option>
+                          <option value="Network Department">Network Department</option>
+                          <option value="Cyber Security Department">Cyber Security Department</option>
+                          <option value="Software Department">Software Department</option>
+                          <option value="QA Department">QA Department</option>
+                          <option value="SAP Department">SAP Department</option>
+                          <option value="Bussiness Intelligent Department">Bussiness Intelligent Department</option>
+                          <option value="Bussiness Analyst Department">Bussiness Analyst Department</option>
                         </select>
                       </div>
 
@@ -478,19 +470,9 @@ export default class CreateEmpData extends Component {
                           className="form-control"
                         >
                           <option defaultValue>--Select Designation--</option>
+                          <option value="Permenent Employee">Permenent Employee</option>
+                          <option value="Contract Employee">Contract-Based Employee</option>
                           <option value="Intern">Intern</option>
-                          <option value="Canada">Canada</option>
-                          <option value="China">China</option>
-                          <option value="Dubai">Dubai</option>
-                          <option value="India">India</option>
-                          <option value="Japan">Japan</option>
-                          <option value="Korea">Korea</option>
-                          <option value="Laos">Laos</option>
-                          <option value="Maldives">Maldives</option>
-                          <option value="Sri Lanka">Sri Lanka</option>
-                          <option value="Thailand">Thailand</option>
-                          <option value="United Kingdom">United Kingdom</option>
-                          <option value="Other">Other</option>
                         </select>
                       </div>
                     </div>
@@ -517,7 +499,7 @@ export default class CreateEmpData extends Component {
                     </button>
                   </center>
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-warning"
                     type="submit"
                     style={{ marginTop: "15px", marginLeft: "300px" }}
                     onClick={this.btnDemo}

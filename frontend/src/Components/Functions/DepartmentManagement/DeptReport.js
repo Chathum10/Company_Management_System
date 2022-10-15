@@ -25,7 +25,7 @@ export default class DeptReport extends Component {
 
         doc.setFontSize(12);
         var fileTitle2 = "Department Details Report 2022";
-        var img = "https://i.ibb.co/g3q0Hc1/we.jpg";
+        var img = "https://i.ibb.co/syhgL0G/Microsoft-Teams-image-1.png";
         doc.text(fileTitle2, 15, 40);
         doc.addImage(img, "JPEG", 0, 0, 210, 30);
 
@@ -91,7 +91,8 @@ export default class DeptReport extends Component {
 
   filterData(departments, searchKey) {
     const result = departments.filter((post) =>
-      post.dCategory.toLowerCase().includes(searchKey)
+      post.dCategory.toLowerCase().includes(searchKey)||
+      post.dName.toLowerCase().includes(searchKey)
     );
 
     this.setState({ departments: result });
@@ -118,7 +119,7 @@ export default class DeptReport extends Component {
 
           <div id="containerJoin">
             <center>
-              <h1 className="gifJoin">All Department Details report</h1>
+              <h1 className="gifJoin">All Department Details Report</h1>
             </center>
           </div>
 

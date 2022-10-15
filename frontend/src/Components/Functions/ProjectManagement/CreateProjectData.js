@@ -7,6 +7,7 @@ const emailRegex = RegExp(
 );
 
 const phoneRegex = RegExp(/^[0-9]{10,15}$/);
+const noRegex = RegExp(/^[1-5]{1}$/);
 
 const formValid = (formErrors) => {
   let valid = true;
@@ -35,6 +36,7 @@ export default class CreateProjectData extends Component {
       formErrors: {
         email: "",
         contactNo: "",
+        pLevel: ""
       },
     };
   }
@@ -55,6 +57,11 @@ export default class CreateProjectData extends Component {
           ? ""
           : "invalid contact number";
         break;
+        case "pLevel":
+          formErrors.pLevel = noRegex.test(value)
+            ? ""
+            : "invalid priority level";
+          break;
       default:
         break;
     }
@@ -320,7 +327,7 @@ export default class CreateProjectData extends Component {
                   <br />
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example3">
-                      <b>projectId</b>
+                      <b>Project ID</b>
                     </label>{" "}
                     <br />
                     <input
@@ -369,18 +376,12 @@ export default class CreateProjectData extends Component {
                       <option value="Intelligent Automation">
                         Intelligent Automation
                       </option>
-                      <option value="Canada">Canada</option>
-                      <option value="China">China</option>
-                      <option value="Dubai">Dubai</option>
-                      <option value="India">India</option>
-                      <option value="Japan">Japan</option>
-                      <option value="Korea">Korea</option>
-                      <option value="Laos">Laos</option>
-                      <option value="Maldives">Maldives</option>
-                      <option value="Sri Lanka">Sri Lanka</option>
-                      <option value="Thailand">Thailand</option>
-                      <option value="United Kingdom">United Kingdom</option>
-                      <option value="Other">Other</option>
+                      <option value="Network Department">Network Department</option>
+                      <option value="Cyber Security Department">Cyber Security Department</option>
+                      <option value="Software Department">Software Department</option>
+                      <option value="SAP Department">SAP Department</option>
+                      <option value="Bussiness Intelligent Department">Bussiness Intelligent Department</option>
+                      <option value="Bussiness Analyst Department">Bussiness Analyst Department</option>
                     </select>
                   </div>
                   <div class="form-outline mb-4">
@@ -395,6 +396,9 @@ export default class CreateProjectData extends Component {
                       value={this.state.pLevel}
                       onChange={this.handleInputChange}
                     />
+                     {formErrors.pLevel.length > 0 && (
+                      <span style={{ color: "red" }}>{formErrors.pLevel}</span>
+                    )}
                   </div>
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example3">
@@ -455,7 +459,7 @@ export default class CreateProjectData extends Component {
                     &nbsp; Submit
                   </button>
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-warning"
                     type="submit"
                     style={{ marginTop: "15px", marginLeft: "300px" }}
                     onClick={this.btnDemo}

@@ -33,7 +33,7 @@ export default class Financial extends Component {
 
         doc.setFontSize(12);
         var fileTitle2 = "Financial Report 2022";
-        var img = "https://i.ibb.co/g3q0Hc1/we.jpg";
+        var img = "https://i.ibb.co/syhgL0G/Microsoft-Teams-image-1.png";
         doc.text(fileTitle2, 15, 40);
         doc.addImage(img, "JPEG", 0, 0, 210, 30);
 
@@ -141,7 +141,10 @@ export default class Financial extends Component {
         <center>
           <MDBCard
             className="text-black mb-3"
-            style={{ maxWidth: "55rem", backgroundColor: "white" }}
+            style={{
+              maxWidth: "50rem",
+              backgroundColor: "rgba(52, 52, 52, 0.4)",
+            }}
           >
             <MDBIcon fas icon="file-invoice-dollar" size="10x" />
 
@@ -157,18 +160,11 @@ export default class Financial extends Component {
                 <br />
                 <br />
                 <b>White Light Pvt.Ltd </b>
-                <br />
-                <br />
 
                 <b>{}</b>
               </MDBCardTitle>
-              <br />
-              <hr />
               <MDBTable small id="my-table1">
                 <MDBTableHead>
-                  <br />
-                  <br />
-
                   <tr>
                     <td>
                       <b>
@@ -230,13 +226,8 @@ export default class Financial extends Component {
                   </tr>
                 </MDBTableBody>
               </MDBTable>
-              <br />
-              <br />
               <MDBTable small id="my-table4">
                 <MDBTableHead>
-                  <br />
-                  <br />
-
                   <tr>
                     <td>
                       <span class="badge bg-dark text-light opacity-90 fs-1">

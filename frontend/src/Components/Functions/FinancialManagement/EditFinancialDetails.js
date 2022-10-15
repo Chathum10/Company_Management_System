@@ -863,7 +863,7 @@ export default class EditFinancialDetails extends Component {
                     <label style={{ marginBottom: "5px", color: "black" }}>
                       <h4>
                         <span class="badge bg-dark text-light opacity-90 fs-1">
-                          Total Profit or Loss Amount (Rupees)
+                          Total Profit or Loss Amount (LKR)
                         </span>
                       </h4>
                     </label>

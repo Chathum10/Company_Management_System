@@ -199,7 +199,7 @@ export default class CreateDeptData extends Component {
             <MDBCard
               className="text-black mb-3"
               style={{
-                maxWidth: "60rem",
+                maxWidth: "70rem",
                 backgroundColor: "rgba(52, 52, 52, 0.4)",
               }}
             >
@@ -227,7 +227,7 @@ export default class CreateDeptData extends Component {
                         >
                           <option defaultValue>--Select Category--</option>
                           <option value="Technology">Technology</option>
-                          <option value="Female">Female</option>
+                          <option value="Management">Management</option>
                         </select>
                       </div>
 
@@ -379,7 +379,7 @@ export default class CreateDeptData extends Component {
                     </button>
                   </center>
                   <button
-                    className="btn btn-dark"
+                    className="btn btn-warning"
                     type="submit"
                     style={{ marginTop: "15px", marginLeft: "300px" }}
                     onClick={this.btnDemo}

@@ -36,8 +36,9 @@ export default class ProjectData extends Component {
   filterData(projects, searchKey) {
     const result = projects.filter(
       (post) =>
-        post.projectId.toLowerCase().includes(searchKey) ||
-        post.pLevel.toLowerCase().includes(searchKey)
+        post.pLevel.toLowerCase().includes(searchKey) ||
+        post.cName.toLowerCase().includes(searchKey)
+
     );
 
     this.setState({ projects: result });
@@ -64,7 +65,7 @@ export default class ProjectData extends Component {
 
           <div id="containerJoin">
             <center>
-              <h1 className="gifJoin">All Projects</h1>
+              <h1 className="gifJoin">Projects Details</h1>
             </center>
           </div>
 
@@ -128,7 +129,6 @@ export default class ProjectData extends Component {
                     <td class="table-light">
                       {projects.progress}
                       <br />
-                      <br />
                       <a
                         className="btn btn-dark"
                         href={`Progress/${projects._id}`}
@@ -142,7 +142,7 @@ export default class ProjectData extends Component {
                         className="btn btn-dark"
                         href={`EditProjectData/${projects._id}`}
                       >
-                        &nbsp;Edit
+                       <i class="fa fa-edit fa-2x"></i>
                       </a>
                       &nbsp;
                       <a
@@ -154,7 +154,7 @@ export default class ProjectData extends Component {
                           ) && this.onDelete(projects._id)
                         }
                       >
-                        &nbsp;Delete
+                         <i class="fa fa-trash-o fa-2x"></i>
                       </a>
                     </td>
                   </tr>

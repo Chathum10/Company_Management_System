@@ -19,7 +19,7 @@ const financialSchema = new mongoose.Schema({
     required: true,
   },
   date: {
-    type: Date,
+    type: String,
     required: true,
   },
   status: {

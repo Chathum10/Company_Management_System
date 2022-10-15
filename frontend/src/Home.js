@@ -61,7 +61,7 @@ const Home = (props) => {
         <div class="area"></div><nav class="main-menu">
             <br></br> <br></br> <br></br> <br></br><ul>
             <li >
-                    <a href="/">
+                    <a href="/home">
                     {/* <img src={logo} className="App-logo" alt="logo" /> */}
                     <img src={require('./images/logo.png')} />
                     <span class="nav-text">

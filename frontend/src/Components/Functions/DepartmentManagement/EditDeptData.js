@@ -161,7 +161,7 @@ export default class EditDeptData extends Component {
             <MDBCard
               className="text-black mb-3"
               style={{
-                maxWidth: "60rem",
+                maxWidth: "70rem",
                 backgroundColor: "rgba(52, 52, 52, 0.4)",
               }}
             >
@@ -181,6 +181,7 @@ export default class EditDeptData extends Component {
                           <b>Department Category</b>
                         </label>
                         <select
+                          disabled
                           name="dCategory"
                           value={this.state.dCategory}
                           onChange={this.handleInputChange}
@@ -189,7 +190,7 @@ export default class EditDeptData extends Component {
                         >
                           <option defaultValue>--Select Category--</option>
                           <option value="Technology">Technology</option>
-                          <option value="Female">Female</option>
+                          <option value="Management">Management</option>
                         </select>
                       </div>
 
@@ -198,6 +199,7 @@ export default class EditDeptData extends Component {
                           <b>Department Name</b>
                         </label>
                         <input
+                          readOnly
                           type="text"
                           className="form-control"
                           name="dName"
@@ -212,6 +214,7 @@ export default class EditDeptData extends Component {
                           <b>Department Email</b>
                         </label>
                         <input
+                          readOnly
                           type="text"
                           className="form-control"
                           name="dEmail"
@@ -300,7 +303,7 @@ export default class EditDeptData extends Component {
                           onChange={this.handleInputChange}
                         />
                         {formErrors.hNo.length > 0 && (
-                          <span className="errorMessage">{formErrors.hNo}</span>
+                          <span style={{ color: "red" }}>{formErrors.hNo}</span>
                         )}
                       </div>
 

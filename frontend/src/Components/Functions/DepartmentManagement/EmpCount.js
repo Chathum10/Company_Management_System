@@ -233,6 +233,7 @@ export default class EmpCount extends Component {
                       <b>Department Name</b>
                     </label>
                     <input
+                      readOnly
                       type="text"
                       className="form-control"
                       name="dName"
@@ -247,6 +248,7 @@ export default class EmpCount extends Component {
                       <b>No OF Teams</b>
                     </label>
                     <input
+                      readOnly
                       type="number"
                       className="form-control"
                       name="dTeams"
