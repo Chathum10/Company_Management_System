@@ -33,7 +33,7 @@ export default class Financial extends Component {
 
         doc.setFontSize(12);
         var fileTitle2 = "Financial Report 2022";
-        var img = "https://ibb.co/9VtNvcB";
+        var img = "https://i.ibb.co/g3q0Hc1/we.jpg";
         doc.text(fileTitle2, 15, 40);
         doc.addImage(img, "JPEG", 0, 0, 210, 30);
 
@@ -148,7 +148,7 @@ export default class Financial extends Component {
               </MDBCardTitle>
               <br />
               <hr />
-              <h3>Income List</h3>
+              <h4 style={{ textAlign: "left" }}>Income List</h4>
               <MDBTable small id="my-table">
                 <MDBTableHead>
                   <tr>
@@ -190,8 +190,9 @@ export default class Financial extends Component {
                   </tr>
                 </MDBTableBody>
               </MDBTable>
-
-              <h4 textAlign="left">Outcome List</h4>
+              <br />
+              <br />
+              <h4 style={{ textAlign: "left" }}>Outcome List</h4>
               <MDBTable small id="my-table2">
                 <MDBTableHead>
                   <tr>
@@ -260,7 +261,6 @@ export default class Financial extends Component {
                 onClick={this.createPdf}
               >
                 <b>Download PDF</b> &nbsp;
-                <MDBIcon far icon="file-pdf" size="2x" />
               </a>
             </center>
           </div>

@@ -14,12 +14,14 @@ import EmpData from "./Components/Functions/EmployeeManagement/EmpData";
 import Employee from "./Components/Functions/EmployeeManagement/Employee";
 import EditEmpData from "./Components/Functions/EmployeeManagement/EditEmpData";
 import Performance from "./Components/Functions/EmployeeManagement/Performance";
+import EmployeeReport from "./Components/Functions/EmployeeManagement/EmployeeReport";
 
 //Project Management
 import CreateProjectData from "./Components/Functions/ProjectManagement/CreateProjectData";
 import ProjectData from "./Components/Functions/ProjectManagement/ProjectData";
 import EditProjectData from "./Components/Functions/ProjectManagement/EditProjectData";
 import Progress from "./Components/Functions/ProjectManagement/Progress";
+import ProjectReport from "./Components/Functions/ProjectManagement/ProjectReport";
 
 //Department Management
 import CreateDeptData from "./Components/Functions/DepartmentManagement/CreateDeptData";
@@ -46,11 +48,13 @@ const App = () => {
         <Route path="/Employee/:id" component={Employee} />
         <Route path="/EditEmpData/:id" component={EditEmpData} />
         <Route path="/Performance/:id" component={Performance} />
+        <Route path="/EmployeeReport" component={EmployeeReport} />
 
         <Route path="/CreateProjectData" component={CreateProjectData} />
         <Route path="/ProjectData" component={ProjectData} />
         <Route path="/EditProjectData/:id" component={EditProjectData} />
         <Route path="/Progress/:id" component={Progress} />
+        <Route path="/ProjectReport" component={ProjectReport} />
 
         <Route path="/CreateDeptData" component={CreateDeptData} />
         <Route path="/DeptData" component={DeptData} />
