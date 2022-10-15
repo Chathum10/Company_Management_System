@@ -86,7 +86,7 @@ overflow:visible;
 .main-menu {
 background:#212121;
 border-right:1px  #212121;
-position:absolute;
+position: static;
 top:0;
 bottom:0;
 height:100%;

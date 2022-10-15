@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './App.css';
+import "./auth/login.css";
 
 const Home = (props) => {
   const [user, setUser] = useState(null);
@@ -47,7 +48,7 @@ const Home = (props) => {
     //     </button><br /><br />
     //   </div>
     // </div>
-
+    <div className="homebk">
     <div className="App">
       <header className="App-header">
       <div class="headerx">
@@ -115,6 +116,7 @@ const Home = (props) => {
                         </span>
                     </a>
                 </li>
+                <br></br>  <br></br>  <br></br>  <br></br>  <br></br>  <br></br>  <br></br>  <br></br>  <br></br>  <br></br>  <br></br>  <br></br>  <br></br>
                 
             </ul>
 
@@ -131,6 +133,14 @@ const Home = (props) => {
         </nav>
        
       </header>
+
+
+      
+    </div>
+
+    <body>
+
+    </body>
     </div>
   );
 };

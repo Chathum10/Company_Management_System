@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./login.css";
 
 
 
@@ -43,9 +44,10 @@ const Register = (props) => {
 
 
   return (
+    <div className="bdyReg" >
     <div className="row">
       <div className="col-sm-2" />
-      <div className="col-sm-8">
+      <div className="col-sm-4">
         <h4 className="text-muted text-center mb-5">Create an account</h4>
 
         <div className="card p-5 shadow">
@@ -90,6 +92,8 @@ const Register = (props) => {
         </div>
       </div>
       <div className="col-sm-2" />
+    </div>
+    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
     </div>
   );
 };

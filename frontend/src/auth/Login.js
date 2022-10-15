@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState } from "react";
 import "./login.css";
 
-
 const Login = (props) => {
   const [data, setData] = useState({
     email: "",
@@ -42,10 +41,11 @@ const Login = (props) => {
 
 
   return (
+    <div className="bdy">
     <div className="row">
-      <div className="col-sm-2" />
-      <div className="col-sm-8">
-        <br></br> 
+      <div className="col-sm-1" />
+      <div className="col-sm-4">
+        <br></br>   <br></br> 
         <h3 className="text-muted text-center mb-5">LOG INTO YOUR ACCOUNT</h3>
         <div className="card p-5 shadow">
           <form>
@@ -79,6 +79,8 @@ const Login = (props) => {
         </div>
       </div>
       <div className="col-sm-2" />
+    </div>
+    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
     </div>
   );
 };
