@@ -11,7 +11,6 @@ import Home from "./Home";
 //Employee Management
 import CreateEmpData from "./Components/Functions/EmployeeManagement/CreateEmpData";
 import EmpData from "./Components/Functions/EmployeeManagement/EmpData";
-import Employee from "./Components/Functions/EmployeeManagement/Employee";
 import EditEmpData from "./Components/Functions/EmployeeManagement/EditEmpData";
 import Performance from "./Components/Functions/EmployeeManagement/Performance";
 import EmployeeReport from "./Components/Functions/EmployeeManagement/EmployeeReport";
@@ -46,7 +45,6 @@ const App = () => {
 
         <Route path="/CreateEmpData" component={CreateEmpData} />
         <Route path="/EmpData" component={EmpData} />
-        <Route path="/Employee/:id" component={Employee} />
         <Route path="/EditEmpData/:id" component={EditEmpData} />
         <Route path="/Performance/:id" component={Performance} />
         <Route path="/EmployeeReport" component={EmployeeReport} />

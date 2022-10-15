@@ -25,7 +25,7 @@ export default class EmployeeReport extends Component {
 
         doc.setFontSize(12);
         var fileTitle2 = "Employee Details Report 2022";
-        var img = "https://i.ibb.co/g3q0Hc1/we.jpg";
+        var img = "https://i.ibb.co/x85V3CN/Screenshot-32.png";
         doc.text(fileTitle2, 15, 40);
         doc.addImage(img, "JPEG", 0, 0, 210, 30);
 
