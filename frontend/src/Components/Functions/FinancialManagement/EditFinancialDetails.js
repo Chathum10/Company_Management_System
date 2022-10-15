@@ -432,11 +432,14 @@ export default class EditFinancialDetails extends Component {
     return (
       <div className="back fixed" style={{ zIndex: 8 }}>
         <br />
+        <a href="/home">
+          <i class="fa fa-home fa-10x"></i>
+        </a>
         <div className="com-md-8 mt-4 mx-auto">
           <br /> <br />
           <center>
             <h1>
-              <span class="badge bg-info text-dark opacity-90 fs-1">
+              <span class="badge bg-dark text-light opacity-90 fs-1">
                 Edit Financial Details
               </span>
             </h1>
@@ -469,25 +472,9 @@ export default class EditFinancialDetails extends Component {
                   </div>
                   <div className="form-group" style={{ marginBottom: "15px" }}>
                     <label style={{ marginBottom: "5px", color: "black" }}>
-                      <h4>
-                        <span class="badge bg-info text-dark opacity-90 fs-1">
-                          {" "}
-                          Assign a ID
-                        </span>
-                      </h4>
+                      <b> ID</b>
                     </label>
-                    <br />
-                    <button
-                      className="btn btn-dark"
-                      type="submit"
-                      style={{ marginTop: "15px" }}
-                      onClick={this.generateKey}
-                    >
-                      <i className="far far-check-square"></i>
-                      &nbsp; Generate ID
-                    </button>
-                    <br />
-                    <br />
+
                     <input
                       type="text"
                       className="form-control"
@@ -501,7 +488,7 @@ export default class EditFinancialDetails extends Component {
                   <div className="form-group" style={{ marginBottom: "15px" }}>
                     <label style={{ marginBottom: "5px", color: "black" }}>
                       <h4>
-                        <span class="badge bg-info text-dark opacity-90 fs-1">
+                        <span class="badge bg-dark text-light opacity-90 fs-1">
                           Income List
                         </span>
                       </h4>
@@ -660,7 +647,7 @@ export default class EditFinancialDetails extends Component {
                   <div className="form-group" style={{ marginBottom: "15px" }}>
                     <label style={{ marginBottom: "5px", color: "black" }}>
                       <h4>
-                        <span class="badge bg-info text-dark opacity-90 fs-1">
+                        <span class="badge bg-dark text-light opacity-90 fs-1">
                           Outcome List
                         </span>
                       </h4>
@@ -819,7 +806,7 @@ export default class EditFinancialDetails extends Component {
                       style={{ display: "table-column", marginRight: "45px" }}
                     >
                       <button
-                        className="btn btn-dark"
+                        className="btn btn-info"
                         type="submit"
                         style={{ marginTop: "15px", marginBottom: "15px" }}
                         onClick={this.theTotalIncome}
@@ -847,7 +834,7 @@ export default class EditFinancialDetails extends Component {
                         style={{ display: "table-column", marginLeft: "115px" }}
                       >
                         <button
-                          className="btn btn-dark"
+                          className="btn btn-info"
                           type="submit"
                           style={{ marginTop: "15px", marginBottom: "15px" }}
                           onClick={this.theTotalOutcome}
@@ -875,7 +862,7 @@ export default class EditFinancialDetails extends Component {
                   <div className="form-group" style={{ marginBottom: "15px" }}>
                     <label style={{ marginBottom: "5px", color: "black" }}>
                       <h4>
-                        <span class="badge bg-info text-dark opacity-90 fs-1">
+                        <span class="badge bg-dark text-light opacity-90 fs-1">
                           Total Profit or Loss Amount (Rupees)
                         </span>
                       </h4>
@@ -883,7 +870,7 @@ export default class EditFinancialDetails extends Component {
                     <br />
                     <div style={{ display: "flex" }}>
                       <button
-                        className="btn btn-dark"
+                        className="btn btn-info"
                         type="submit"
                         style={{ marginTop: "15px" }}
                         onClick={this.totPayble}
@@ -910,7 +897,7 @@ export default class EditFinancialDetails extends Component {
                   </div>
                   <div style={{ display: "flex" }}>
                     <button
-                      className="btn btn-dark"
+                      className="btn btn-info"
                       type="submit"
                       style={{
                         marginTop: "15px",
@@ -937,13 +924,13 @@ export default class EditFinancialDetails extends Component {
                     </div>
                   </div>
                   <button
-                    className="btn btn-success"
+                    className="btn btn-dark"
                     type="submit"
                     style={{ marginTop: "15px" }}
                     onClick={this.onSubmit}
                   >
                     <i className="far far-check-square"></i>
-                    &nbsp; Update
+                    &nbsp; Save Changes
                   </button>
                   <br /> <br />
                   <br />

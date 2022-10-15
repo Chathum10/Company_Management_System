@@ -51,10 +51,18 @@ export default class Financial extends Component {
         // jsPDF 1.4+ uses getWidth, <1.4 uses .width
         var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
 
-        doc.autoTable({ html: "#my-table", startY: pageHeight - 250 });
-
+        doc.autoTable({
+          html: "#my-table1",
+          theme: "plain",
+          startY: pageHeight - 250,
+        });
+        doc.autoTable({ html: "#my-table" });
+        doc.autoTable({
+          html: "#my-table4",
+          theme: "plain",
+        });
         doc.autoTable({ html: "#my-table2" });
-        doc.autoTable({ html: "#my-table3", theme: "striped" });
+        doc.autoTable({ html: "#my-table3", theme: "grid" });
 
         var str = "Page " + doc.internal.getNumberOfPages();
         // Total page number plugin only available in jspdf v1.0+
@@ -126,6 +134,9 @@ export default class Financial extends Component {
         <div class="bg"></div>
         <div class="bg bg2"></div>
         <div class="bg bg3"></div>
+        <a href="/home">
+          <i class="fa fa-home fa-10x"></i>
+        </a>
         <br /> <br /> <br /> <br />
         <center>
           <MDBCard
@@ -136,7 +147,12 @@ export default class Financial extends Component {
 
             <MDBCardBody>
               <MDBCardTitle>
-                <b>Financial Report 2022</b>
+                <b>
+                  {" "}
+                  <span class="badge bg-dark text-light opacity-90 fs-1">
+                    Financial Report 2022
+                  </span>
+                </b>
 
                 <br />
                 <br />
@@ -148,7 +164,27 @@ export default class Financial extends Component {
               </MDBCardTitle>
               <br />
               <hr />
-              <h4 style={{ textAlign: "left" }}>Income List</h4>
+              <MDBTable small id="my-table1">
+                <MDBTableHead>
+                  <br />
+                  <br />
+
+                  <tr>
+                    <td>
+                      <b>
+                        <span class="badge bg-dark text-light opacity-90 fs-1">
+                          Income List
+                        </span>
+                      </b>
+                    </td>
+                    <br />
+                    <td>
+                      <b>{}</b>
+                    </td>
+                  </tr>
+                </MDBTableHead>
+              </MDBTable>
+
               <MDBTable small id="my-table">
                 <MDBTableHead>
                   <tr>
@@ -183,16 +219,37 @@ export default class Financial extends Component {
                     <td>{ifiweekd}</td>
                     <td>{ifiweek}</td>
                   </tr>
-                  <tr striped hover className="table-info">
-                    <td>Total Income</td>
+                  <tr striped hover style={{ background: "#BDBDBD" }}>
+                    <td>
+                      <b>Total Income</b>
+                    </td>
                     <td>{}</td>
-                    <td>{totalIncome}</td>
+                    <td>
+                      <b>{totalIncome}</b>
+                    </td>
                   </tr>
                 </MDBTableBody>
               </MDBTable>
               <br />
               <br />
-              <h4 style={{ textAlign: "left" }}>Outcome List</h4>
+              <MDBTable small id="my-table4">
+                <MDBTableHead>
+                  <br />
+                  <br />
+
+                  <tr>
+                    <td>
+                      <span class="badge bg-dark text-light opacity-90 fs-1">
+                        Outcome List
+                      </span>
+                    </td>
+                    <br />
+                    <td>
+                      <b>{}</b>
+                    </td>
+                  </tr>
+                </MDBTableHead>
+              </MDBTable>
               <MDBTable small id="my-table2">
                 <MDBTableHead>
                   <tr>
@@ -227,10 +284,14 @@ export default class Financial extends Component {
                     <td>{ofoweekd}</td>
                     <td>{ofoweek}</td>
                   </tr>
-                  <tr striped hover className="table-info">
-                    <td>Total Outcome</td>
+                  <tr striped hover style={{ background: "#BDBDBD" }}>
+                    <td>
+                      <b>Total Outcome</b>
+                    </td>
                     <td>{}</td>
-                    <td>{totalOutcome}</td>
+                    <td>
+                      <b>{totalOutcome}</b>
+                    </td>
                   </tr>
                 </MDBTableBody>
               </MDBTable>
@@ -256,10 +317,7 @@ export default class Financial extends Component {
           <br />
           <div>
             <center>
-              <a
-                className="btn btn-warning text-dark "
-                onClick={this.createPdf}
-              >
+              <a className="btn btn-dark text-light " onClick={this.createPdf}>
                 <b>Download PDF</b> &nbsp;
               </a>
             </center>

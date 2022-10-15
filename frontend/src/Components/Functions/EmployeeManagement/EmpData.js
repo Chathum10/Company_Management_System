@@ -59,10 +59,9 @@ export default class EmpData extends Component {
       <div className="back fixed" style={{ zIndex: 8 }}>
         <div className="hc">
           <br />
-          <a className="btn btn-warning text-dark " href="/home">
-            <b>Dashboard</b>
+          <a href="/home">
+            <i class="fa fa-home fa-10x"></i>
           </a>
-
           <div id="containerJoin">
             <center>
               <h1 className="gifJoin">All Employees</h1>
@@ -84,12 +83,12 @@ export default class EmpData extends Component {
             <br />
 
             <h3>
-              <span class="badge bg-info text-dark opacity-90 ">
+              <span class="badge bg-dark text-light opacity-90 ">
                 Employee Information
               </span>
             </h3>
             <table class="table table-bordered ">
-              <thead class="table-info">
+              <thead style={{ background: "#BDBDBD" }}>
                 <tr>
                   <th scope="col">EMP ID</th>
                   <th scope="col">Name</th>
@@ -102,14 +101,7 @@ export default class EmpData extends Component {
               <tbody>
                 {this.state.employee.map((employee, index) => (
                   <tr>
-                    <td class="table-light">
-                      <a
-                        href={`/employee/${employee._id}`}
-                        style={{ textDecoration: "none" }}
-                      >
-                        {employee.empId}
-                      </a>
-                    </td>
+                    <td class="table-light">{employee.empId}</td>
                     <td class="table-light">{employee.name}</td>
                     <td class="table-light">
                       <b>NIC:</b> {employee.nic}
@@ -137,7 +129,7 @@ export default class EmpData extends Component {
                       <br />
                       <br />
                       <a
-                        className="btn btn-success"
+                        className="btn btn-dark"
                         href={`/Performance/${employee._id}`}
                       >
                         &nbsp;Add This Month
@@ -146,7 +138,7 @@ export default class EmpData extends Component {
 
                     <td class="table-light">
                       <a
-                        className="btn btn-warning"
+                        className="btn btn-dark"
                         href={`/EditEmpData/${employee._id}`}
                       >
                         &nbsp;Edit
@@ -174,14 +166,11 @@ export default class EmpData extends Component {
 
             <div>
               <center>
-                <a className="btn btn-warning text-dark " href="/createEmpData">
+                <a className="btn btn-dark  " href="/createEmpData">
                   <b>Add New Employee Information</b>
                 </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a
-                  className="btn btn-warning text-dark "
-                  href="/EmployeeReport"
-                >
+                <a className="btn btn-dark " href="/EmployeeReport">
                   <b>Generate Report</b>
                 </a>
               </center>

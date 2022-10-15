@@ -57,8 +57,8 @@ export default class DepData extends Component {
       <div className="back fixed" style={{ zIndex: 8 }}>
         <div className="hc">
           <br />
-          <a className="btn btn-warning text-dark " href="/home">
-            <b>Dashboard</b>
+          <a href="/home">
+            <i class="fa fa-home fa-10x"></i>
           </a>
 
           <div id="containerJoin">
@@ -83,12 +83,12 @@ export default class DepData extends Component {
             <br />
 
             <h3>
-              <span class="badge bg-info text-dark opacity-90 ">
+              <span class="badge bg-dark text-light opacity-90 ">
                 Departments Information
               </span>
             </h3>
             <table class="table table-bordered ">
-              <thead class="table-info">
+              <thead style={{ background: "#BDBDBD" }}>
                 <tr>
                   <th scope="col">Department Name</th>
                   <th scope="col">Department Information</th>
@@ -100,14 +100,7 @@ export default class DepData extends Component {
               <tbody>
                 {this.state.departments.map((departments, index) => (
                   <tr>
-                    <td class="table-light">
-                      <a
-                        href={`/departments/${departments._id}`}
-                        style={{ textDecoration: "none" }}
-                      >
-                        {departments.dName}
-                      </a>
-                    </td>
+                    <td class="table-light">{departments.dName}</td>
                     <td class="table-light">
                       <b>Category:</b> {departments.dCategory}
                       <br />
@@ -129,7 +122,7 @@ export default class DepData extends Component {
                       {departments.total}
                       <br />
                       <a
-                        className="btn btn-success"
+                        className="btn btn-dark"
                         href={`EmpCount/${departments._id}`}
                       >
                         &nbsp;Cal Emp Count
@@ -138,7 +131,7 @@ export default class DepData extends Component {
 
                     <td class="table-light">
                       <a
-                        className="btn btn-warning"
+                        className="btn btn-dark"
                         href={`EditDeptData/${departments._id}`}
                       >
                         &nbsp;Edit
@@ -166,14 +159,11 @@ export default class DepData extends Component {
 
             <div>
               <center>
-                <a
-                  className="btn btn-warning text-dark "
-                  href="/CreateDeptData"
-                >
+                <a className="btn btn-dark text-light " href="/CreateDeptData">
                   <b>Create New Department</b>
                 </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a className="btn btn-warning text-dark " href="/DeptReport">
+                <a className="btn btn-dark text-light " href="/DeptReport">
                   <b>Generate Report</b>
                 </a>
               </center>

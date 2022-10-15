@@ -68,8 +68,8 @@ export default class FinancialDetails extends Component {
       <div className="back fixed" style={{ zIndex: 8 }}>
         <div className="hc">
           <br />
-          <a className="btn btn-warning text-dark " href="/home">
-            <b>Dashboard</b>
+          <a href="/home">
+            <i class="fa fa-home fa-10x"></i>
           </a>
 
           <div id="containerJoin">
@@ -90,14 +90,13 @@ export default class FinancialDetails extends Component {
             </form>
           </div>
           <h3>
-            <span class="badge bg-info text-dark opacity-90 ">
+            <span class="badge bg-dark text-light opacity-90 ">
               Financial Information
             </span>
           </h3>
           <table class="table table-bordered ">
-            <thead class="table-info">
+            <thead style={{ background: "#BDBDBD" }}>
               <tr>
-                <th scope="col">#</th>
                 <th scope="col">FID</th>
                 <th scope="col">Month</th>
                 <th scope="col">Total Income</th>
@@ -110,7 +109,6 @@ export default class FinancialDetails extends Component {
             <tbody>
               {this.state.financial.map((financial, index) => (
                 <tr key={index}>
-                  <th scope="row">{index + 1}</th>
                   <td class="table-light">{financial.fId}</td>
 
                   <td class="table-light">{financial.date}</td>
@@ -121,7 +119,7 @@ export default class FinancialDetails extends Component {
                   <td class="table-light">{financial.status}</td>
                   <td class="table-light">
                     <a
-                      className="btn btn-warning"
+                      className="btn btn-dark"
                       href={`/financial/${financial._id}`}
                       style={{ textDecoration: "none" }}
                     >
@@ -129,7 +127,7 @@ export default class FinancialDetails extends Component {
                     </a>
                     &nbsp;
                     <a
-                      className="btn btn-warning"
+                      className="btn btn-dark"
                       href={`/EditFinancialDetails/${financial._id}`}
                     >
                       &nbsp;Edit
@@ -155,7 +153,7 @@ export default class FinancialDetails extends Component {
           <div>
             <center>
               <a
-                className="btn btn-warning text-dark "
+                className="btn btn-dark text-light "
                 href="/AddFinancialDetails"
               >
                 <MDBIcon fas icon="user-plus" />

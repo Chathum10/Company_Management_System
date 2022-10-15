@@ -58,8 +58,8 @@ export default class ProjectData extends Component {
       <div className="back fixed" style={{ zIndex: 8 }}>
         <div className="hc">
           <br />
-          <a className="btn btn-warning text-dark " href="/home">
-            <b>Dashboard</b>
+          <a href="/home">
+            <i class="fa fa-home fa-10x"></i>
           </a>
 
           <div id="containerJoin">
@@ -84,12 +84,12 @@ export default class ProjectData extends Component {
             <br />
 
             <h3>
-              <span class="badge bg-info text-dark opacity-90 ">
+              <span class="badge bg-dark text-light opacity-90 ">
                 Projects Information
               </span>
             </h3>
             <table class="table table-bordered ">
-              <thead class="table-info">
+              <thead style={{ background: "#BDBDBD" }}>
                 <tr>
                   <th scope="col">Project ID</th>
                   <th scope="col">Client Information</th>
@@ -101,14 +101,7 @@ export default class ProjectData extends Component {
               <tbody>
                 {this.state.projects.map((projects, index) => (
                   <tr>
-                    <td class="table-light">
-                      <a
-                        href={`/projects/${projects._id}`}
-                        style={{ textDecoration: "none" }}
-                      >
-                        {projects.projectId}
-                      </a>
-                    </td>
+                    <td class="table-light">{projects.projectId}</td>
                     <td class="table-light">
                       <b>Name:</b> {projects.cName}
                       <br />
@@ -137,7 +130,7 @@ export default class ProjectData extends Component {
                       <br />
                       <br />
                       <a
-                        className="btn btn-success"
+                        className="btn btn-dark"
                         href={`Progress/${projects._id}`}
                       >
                         &nbsp;Add Progress
@@ -146,7 +139,7 @@ export default class ProjectData extends Component {
 
                     <td class="table-light">
                       <a
-                        className="btn btn-warning"
+                        className="btn btn-dark"
                         href={`EditProjectData/${projects._id}`}
                       >
                         &nbsp;Edit
@@ -175,13 +168,13 @@ export default class ProjectData extends Component {
             <div>
               <center>
                 <a
-                  className="btn btn-warning text-dark "
+                  className="btn btn-dark text-light "
                   href="/CreateProjectData"
                 >
                   <b>Add New Project Data</b>
                 </a>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a className="btn btn-warning text-dark " href="/ProjectReport">
+                <a className="btn btn-dark text-light " href="/ProjectReport">
                   <b>Generate Report</b>
                 </a>
               </center>

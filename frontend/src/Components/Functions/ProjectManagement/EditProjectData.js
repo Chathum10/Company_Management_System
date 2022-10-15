@@ -152,11 +152,14 @@ export default class EditProjectData extends Component {
     return (
       <div className="back fixed" style={{ zIndex: 8 }}>
         <br />
+        <a href="/home">
+          <i class="fa fa-home fa-10x"></i>
+        </a>
         <div className="com-md-8 mt-4 mx-auto">
           <br /> <br />
           <center>
             <h1>
-              <span class="badge bg-info text-dark opacity-90 fs-1">
+              <span class="badge bg-dark text-light opacity-90 fs-1">
                 Edit Project Information
               </span>
             </h1>
@@ -174,7 +177,7 @@ export default class EditProjectData extends Component {
                 <br />
                 <form>
                   <h4>
-                    <span class="badge bg-info text-dark opacity-90 fs-1">
+                    <span class="badge bg-dark text-light opacity-90 fs-1">
                       Client Information
                     </span>
                   </h4>
@@ -234,7 +237,7 @@ export default class EditProjectData extends Component {
                   <br />
 
                   <h4>
-                    <span class="badge bg-info text-dark opacity-90 fs-1">
+                    <span class="badge bg-dark text-light opacity-90 fs-1">
                       Project Infomation
                     </span>
                   </h4>
@@ -359,7 +362,7 @@ export default class EditProjectData extends Component {
 
                   <center>
                     <button
-                      className="btn btn-success"
+                      className="btn btn-dark"
                       type="submit"
                       style={{ marginTop: "15px" }}
                       onClick={this.onSubmit}

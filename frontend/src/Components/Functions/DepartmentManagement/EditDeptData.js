@@ -144,11 +144,14 @@ export default class EditDeptData extends Component {
     return (
       <div className="back fixed" style={{ zIndex: 8 }}>
         <br />
+        <a href="/home">
+          <i class="fa fa-home fa-10x"></i>
+        </a>
         <div className="com-md-8 mt-4 mx-auto">
           <br /> <br />
           <center>
             <h1>
-              <span class="badge bg-info text-dark opacity-90 fs-1">
+              <span class="badge bg-dark text-light opacity-90 fs-1">
                 Update Department Info
               </span>
             </h1>
@@ -168,7 +171,7 @@ export default class EditDeptData extends Component {
                   <div className="row">
                     <div className="col">
                       <h4>
-                        <span class="badge bg-info text-dark opacity-90 fs-1">
+                        <span class="badge bg-dark text-light opacity-90 fs-1">
                           Department Information
                         </span>
                       </h4>
@@ -240,7 +243,7 @@ export default class EditDeptData extends Component {
 
                     <div className="col">
                       <h4>
-                        <span class="badge bg-info text-dark opacity-90 fs-1">
+                        <span class="badge bg-dark text-light opacity-90 fs-1">
                           Department Head Information
                         </span>
                       </h4>
@@ -319,7 +322,7 @@ export default class EditDeptData extends Component {
 
                   <center>
                     <button
-                      className="btn btn-success"
+                      className="btn btn-dark"
                       type="submit"
                       style={{ marginTop: "15px" }}
                       onClick={this.onSubmit}

@@ -118,8 +118,8 @@ export default class EmployeeReport extends Component {
       <div className="back fixed" style={{ zIndex: 8 }}>
         <div className="hc">
           <br />
-          <a className="btn btn-warning text-dark " href="/home">
-            <b>Dashboard</b>
+          <a href="/home">
+            <i class="fa fa-home fa-10x"></i>
           </a>
 
           <div id="containerJoin">
@@ -143,12 +143,12 @@ export default class EmployeeReport extends Component {
             <br />
 
             <h3>
-              <span class="badge bg-info text-dark opacity-90 ">
+              <span class="badge bg-dark text-light opacity-90 ">
                 Employee Information
               </span>
             </h3>
             <table class="table table-bordered " id="my-table">
-              <thead class="table-info">
+              <thead style={{ background: "#BDBDBD" }}>
                 <tr>
                   <th scope="col">EMP ID</th>
                   <th scope="col">Name</th>
@@ -197,7 +197,7 @@ export default class EmployeeReport extends Component {
             <div>
               <center>
                 <a
-                  className="btn btn-warning text-dark "
+                  className="btn btn-dark text-light "
                   onClick={this.createPdf}
                 >
                   <b>Download PDF</b> &nbsp;
