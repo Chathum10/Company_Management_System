@@ -100,7 +100,7 @@ export default class EmpData extends Component {
                 <th scope="col">Name</th>
                 <th scope="col">Personal Information</th>
                 <th scope="col">Employment</th>
-                <th scope="col">Performance</th>
+                <th scope="col">Performance (out of 10)</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -127,8 +127,8 @@ export default class EmpData extends Component {
                   </td>
 
                   <td class="table-light">
-                  {employee.performance}<br />
-                    <a className="btn btn-success" href={`/#/${employee._id}`}>
+                  <b>{employee.performance}</b><br /><br />
+                    <a className="btn btn-success" href={`/Performance/${employee._id}`}>
                       &nbsp;Add This Month
                     </a>
                 </td>

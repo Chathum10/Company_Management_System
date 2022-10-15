@@ -49,6 +49,7 @@ const employeeSchema = new mongoose.Schema({
     },
     overallRating:{
         type:String,
+        default:"0",
     },
     overallmonths:{
         type:String,

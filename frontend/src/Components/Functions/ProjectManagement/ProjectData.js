@@ -126,8 +126,8 @@ export default class ProjectData extends Component {
                   </td>
 
                   <td class="table-light">
-                  {projects.progress}<br />
-                    <a className="btn btn-success" href={`#/${projects._id}`}>
+                  {projects.progress}<br /><br />
+                    <a className="btn btn-success" href={`Progress/${projects._id}`}>
                       &nbsp;Add Progress
                     </a>
                 </td>
