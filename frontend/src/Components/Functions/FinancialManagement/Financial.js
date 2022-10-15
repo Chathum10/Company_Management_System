@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-//import jsPDF from "jspdf";
-//import autoTable from "jspdf-autotable";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 import {
   MDBCard,
   MDBCardBody,
@@ -21,72 +21,61 @@ export default class Financial extends Component {
     };
   }
 
-  // createPdf = (pdfBody) => {
-  //   var doc = new jsPDF();
-  //   var totalPagesExp = "{total_pages_count_string}"; //placeholder for total number of pages
-  //   doc.autoTable({
-  //     didDrawPage: function (data) {
-  //       // Header
-  //       doc.setFontSize(18);
-  //       var fileTitle1 = "White Light pvt.ltd ";
-  //       doc.text(fileTitle1, 15, 20);
+  createPdf = (pdfBody) => {
+    var doc = new jsPDF();
+    var totalPagesExp = "{total_pages_count_string}"; //placeholder for total number of pages
+    doc.autoTable({
+      didDrawPage: function (data) {
+        // Header
+        doc.setFontSize(18);
+        var fileTitle1 = "White Light pvt.ltd ";
+        doc.text(fileTitle1, 15, 20);
 
-  //       doc.setFontSize(12);
-  //       var fileTitle2 = "Financial Report 2022";
-  //       var img = "https://i.ibb.co/g3q0Hc1/we.jpg";
-  //       doc.text(fileTitle2, 15, 40);
-  //       doc.addImage(img, "JPEG", 0, 0, 210, 30);
+        doc.setFontSize(12);
+        var fileTitle2 = "Financial Report 2022";
+        var img = "https://ibb.co/9VtNvcB";
+        doc.text(fileTitle2, 15, 40);
+        doc.addImage(img, "JPEG", 0, 0, 210, 30);
 
-  //       doc.setFontSize(9);
-  //       var today = new Date();
-  //       var newdat = "Date Printed : " + today;
-  //       doc.text(100, 40, newdat);
+        doc.setFontSize(9);
+        var today = new Date();
+        var newdat = "Date Printed : " + today;
+        doc.text(100, 40, newdat);
 
-  //       // Footer
-  //       var pageSize = doc.internal.pageSize;
-  //       //jsPDF 1.4+ uses getHeight, <1.4 uses .height
-  //       var pageHeight = pageSize.height
-  //         ? pageSize.height
-  //         : pageSize.getHeight();
-  //       // jsPDF 1.4+ uses getWidth, <1.4 uses .width
-  //       var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
+        // Footer
+        var pageSize = doc.internal.pageSize;
+        //jsPDF 1.4+ uses getHeight, <1.4 uses .height
+        var pageHeight = pageSize.height
+          ? pageSize.height
+          : pageSize.getHeight();
+        // jsPDF 1.4+ uses getWidth, <1.4 uses .width
+        var pageWidth = pageSize.width ? pageSize.width : pageSize.getWidth();
 
-  //       // doc.autoTable({
-  //       //   html: "#my-table",
-  //       //   startY: pageHeight - 250,
-  //       //   theme: "striped",
-  //       // });
-  //       // doc.autoTable({
-  //       //   html: "#my-table2",
-  //       //   startY: pageHeight - 250,
-  //       //   theme: "striped",
-  //       // });
+        doc.autoTable({ html: "#my-table", startY: pageHeight - 250 });
 
-  //       doc.autoTable({ html: "#my-table", startY: pageHeight - 250 });
+        doc.autoTable({ html: "#my-table2" });
+        doc.autoTable({ html: "#my-table3", theme: "striped" });
 
-  //       doc.autoTable({ html: "#my-table2" });
-  //       doc.autoTable({ html: "#my-table3", theme: "striped" });
+        var str = "Page " + doc.internal.getNumberOfPages();
+        // Total page number plugin only available in jspdf v1.0+
+        if (typeof doc.putTotalPages === "function") {
+          str = str + " of " + totalPagesExp;
+        }
+        doc.setFontSize(10);
+        doc.text(str, data.settings.margin.left, pageHeight - 10);
+      },
+      margin: {
+        bottom: 60, //this decides how big your footer area will be
+        top: 40, //this decides how big your header area will be.
+      },
+    });
+    // Total page number plugin only available in jspdf v1.0+
+    if (typeof doc.putTotalPages === "function") {
+      doc.putTotalPages(totalPagesExp);
+    }
 
-  //       var str = "Page " + doc.internal.getNumberOfPages();
-  //       // Total page number plugin only available in jspdf v1.0+
-  //       if (typeof doc.putTotalPages === "function") {
-  //         str = str + " of " + totalPagesExp;
-  //       }
-  //       doc.setFontSize(10);
-  //       doc.text(str, data.settings.margin.left, pageHeight - 10);
-  //     },
-  //     margin: {
-  //       bottom: 60, //this decides how big your footer area will be
-  //       top: 40, //this decides how big your header area will be.
-  //     },
-  //   });
-  //   // Total page number plugin only available in jspdf v1.0+
-  //   if (typeof doc.putTotalPages === "function") {
-  //     doc.putTotalPages(totalPagesExp);
-  //   }
-
-  //   doc.save("Financial_Report.pdf"); //this downloads a copy of the pdf in your local instance.
-  // };
+    doc.save("Financial_Report.pdf"); //this downloads a copy of the pdf in your local instance.
+  };
 
   componentDidMount() {
     const id = this.props.match.params.id;
