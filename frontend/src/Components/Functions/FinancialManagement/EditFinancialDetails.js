@@ -453,7 +453,7 @@ export default class EditFinancialDetails extends Component {
                 backgroundColor: "rgba(52, 52, 52, 0.4)",
               }}
             >
-              <div className="col-md-8 mt-4 mx-auto">
+              <div className="col-md-9 mt-4 mx-auto">
                 <br />
                 <form>
                   <div className="form-group" style={{ marginBottom: "15px" }}>

@@ -32,7 +32,7 @@ export default class Financial extends Component {
         doc.text(fileTitle1, 15, 20);
 
         doc.setFontSize(12);
-        var fileTitle2 = "Financial Report 2022";
+        var fileTitle2 = "White Light Pvt.Ltd ";
         var img = "https://i.ibb.co/syhgL0G/Microsoft-Teams-image-1.png";
         doc.text(fileTitle2, 15, 40);
         doc.addImage(img, "JPEG", 0, 0, 210, 30);
@@ -152,16 +152,23 @@ export default class Financial extends Component {
               <MDBCardTitle>
                 <b>
                   {" "}
-                  <h4>Financial Report 2022</h4>
+                  <h4>Financial Report - {date}</h4>
                 </b>
                 <b>White Light Pvt.Ltd </b>
-                <br />
                 <br />
               </MDBCardTitle>
               <MDBTable small id="my-table1">
                 <MDBTableHead>
                   <tr>
-                    <td>
+                    <td style={{ borderBlockColor: "transparent" }}></td>
+                    <td style={{ borderBlockColor: "transparent" }}>
+                      <b style={{ color: "transparent" }}>
+                        Financial Report - {date}
+                      </b>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style={{ borderBlockColor: "transparent" }}>
                       <b>
                         <span class="badge bg-dark text-light opacity-90 fs-1">
                           Income List
@@ -169,9 +176,6 @@ export default class Financial extends Component {
                       </b>
                     </td>
                     <br />
-                    <td>
-                      <b>{}</b>
-                    </td>
                   </tr>
                 </MDBTableHead>
               </MDBTable>
@@ -224,7 +228,7 @@ export default class Financial extends Component {
               <MDBTable small id="my-table4">
                 <MDBTableHead>
                   <tr>
-                    <td>
+                    <td style={{ borderBlockColor: "transparent" }}>
                       <span class="badge bg-dark text-light opacity-90 fs-1">
                         Outcome List
                       </span>
