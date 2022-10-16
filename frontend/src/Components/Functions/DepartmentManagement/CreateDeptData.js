@@ -8,7 +8,7 @@ const emailRegex = RegExp(
 
 const phoneRegex = RegExp(/^[0-9]{10,15}$/);
 
-const charRegex = RegExp(/^[a-zA-Z]{1,50}$/);
+const charRegex = RegExp(/^[a-zA-Z\s]{1,50}$/);
 
 const formValid = (formErrors) => {
   let valid = true;
@@ -266,7 +266,7 @@ export default class CreateDeptData extends Component {
 
                       <div class="form-outline mb-4">
                         <label class="form-label" for="form3Example3">
-                          <b>No OF Teams</b>
+                          <b>No of Teams</b>
                         </label>
                         <input
                           type="number"
