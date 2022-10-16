@@ -290,12 +290,11 @@ export default class Progress extends Component {
                       defaultValue="Select Type"
                       className="form-control"
                     >
-                      <option defaultValue="0%">Not Started</option>
-                      <option value="100%">No Need</option>
+                      <option value="0%">Not started</option>
                       <option value="25%">25%</option>
                       <option value="50%">50%</option>
                       <option value="75%">75%</option>
-                      <option value="100%">Done</option>
+                      <option value="100%">100%</option>
                     </select>
                   </div>
 
@@ -310,12 +309,11 @@ export default class Progress extends Component {
                       defaultValue="Select Type"
                       className="form-control"
                     >
-                      <option defaultValue="0%">Not Started</option>
-                      <option value="100%">No Need</option>
+                       <option value="0%">Not started</option>
                       <option value="25%">25%</option>
                       <option value="50%">50%</option>
                       <option value="75%">75%</option>
-                      <option value="100%">Done</option>
+                      <option value="100%">100%</option>
                     </select>
                   </div>
 
@@ -330,12 +328,11 @@ export default class Progress extends Component {
                       defaultValue="Select Type"
                       className="form-control"
                     >
-                      <option defaultValue="0%">Not Started</option>
-                      <option value="100%">No Need</option>
+                      <option value="0%">Not started</option>
                       <option value="25%">25%</option>
                       <option value="50%">50%</option>
                       <option value="75%">75%</option>
-                      <option value="100%">Done</option>
+                      <option value="100%">100%</option>
                     </select>
                   </div>
 
@@ -350,12 +347,11 @@ export default class Progress extends Component {
                       defaultValue="Select Type"
                       className="form-control"
                     >
-                      <option defaultValue="0%">Not Started</option>
-                      <option value="100%">No Need</option>
+                      <option value="0%">Not started</option>
                       <option value="25%">25%</option>
                       <option value="50%">50%</option>
                       <option value="75%">75%</option>
-                      <option value="100%">Done</option>
+                      <option value="100%">100%</option>
                     </select>
                   </div>
 
@@ -370,12 +366,11 @@ export default class Progress extends Component {
                       defaultValue="Select Type"
                       className="form-control"
                     >
-                      <option defaultValue="0%">Not Started</option>
-                      <option value="100%">No Need</option>
+                      <option value="0%">Not started</option>
                       <option value="25%">25%</option>
                       <option value="50%">50%</option>
                       <option value="75%">75%</option>
-                      <option value="100%">Done</option>
+                      <option value="100%">100%</option>
                     </select>
                   </div>
 
