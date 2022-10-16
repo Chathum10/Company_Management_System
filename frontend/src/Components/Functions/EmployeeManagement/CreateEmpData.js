@@ -8,8 +8,6 @@ const emailRegex = RegExp(
 
 const phoneRegex = RegExp(/^[0-9]{10,15}$/);
 
-const charRegex = RegExp(/^[a-zA-Z]{1,50}$/);
-
 const nicRegex = RegExp(/^[0-9+v]{10,12}$/);
 
 const formValid = (formErrors) => {
@@ -37,7 +35,6 @@ export default class CreateEmpData extends Component {
       designation: "",
 
       formErrors: {
-        name: "",
         email: "",
         contactNo: "",
         nic: "",
@@ -63,9 +60,6 @@ export default class CreateEmpData extends Component {
         break;
       case "nic":
         formErrors.nic = nicRegex.test(value) ? "" : "invalid NIC number";
-        break;
-      case "name":
-        formErrors.name = charRegex.test(value) ? "" : "invalid name!";
         break;
       default:
         break;
