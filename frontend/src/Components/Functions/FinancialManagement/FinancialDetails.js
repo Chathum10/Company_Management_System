@@ -99,9 +99,9 @@ export default class FinancialDetails extends Component {
               <tr>
                 <th scope="col">FID</th>
                 <th scope="col">Month</th>
-                <th scope="col">Total Income</th>
-                <th scope="col">Total Outcome</th>
-                <th scope="col">Profit or Loss</th>
+                <th scope="col">Total Income(Rs.)</th>
+                <th scope="col">Total Outcome(Rs.)</th>
+                <th scope="col">Profit or Loss(Rs.)</th>
                 <th scope="col">Status</th>
                 <th scope="col">Review</th>
                 <th scope="col">Action</th>
@@ -119,22 +119,22 @@ export default class FinancialDetails extends Component {
 
                   <td class="table-light">{financial.status}</td>
                   <td class="table-light">
-                  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-                  <a
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <a
                       className="btn btn-dark"
                       href={`/financial/${financial._id}`}
                       style={{ textDecoration: "none" }}
                     >
-                     <i class="fa fa-eye fa-2x"></i>
+                      <i class="fa fa-eye fa-2x"></i>
                     </a>
                   </td>
                   <td class="table-light">
-                  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                     <a
                       className="btn btn-dark"
                       href={`/EditFinancialDetails/${financial._id}`}
                     >
-                    <i class="fa fa-edit fa-2x"></i>
+                      <i class="fa fa-edit fa-2x"></i>
                     </a>
                     &nbsp;
                     <a

@@ -499,7 +499,7 @@ export default class AddFinancialDetails extends Component {
     console.log(data);
 
     this.setState({
-      date: "July 2022",
+      date: "August 2022",
       ifweek: "400000",
       isweek: "1500000",
       itweek: "2000000",
