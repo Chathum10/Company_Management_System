@@ -134,6 +134,11 @@ const Home = (props) => {
        
       </header>
 
+      <body><center>
+        
+Copyright © White light All rights reserved.
+</center></body>
+
 
       
     </div>
