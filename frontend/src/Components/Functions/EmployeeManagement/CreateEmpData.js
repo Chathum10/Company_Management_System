@@ -8,7 +8,7 @@ const emailRegex = RegExp(
 
 const phoneRegex = RegExp(/^[0-9]{10,15}$/);
 
-const charRegex = RegExp(/^[a-zA-Z]\s{1,50}$/);
+const charRegex = RegExp(/^[a-zA-Z]{1,50}$/);
 
 const nicRegex = RegExp(/^[0-9+v]{10,12}$/);
 
