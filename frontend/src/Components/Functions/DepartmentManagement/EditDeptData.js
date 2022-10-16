@@ -231,7 +231,7 @@ export default class EditDeptData extends Component {
 
                       <div class="form-outline mb-4">
                         <label class="form-label" for="form3Example3">
-                          <b>No OF Teams</b>
+                          <b>No of Teams</b>
                         </label>
                         <input
                           type="number"
