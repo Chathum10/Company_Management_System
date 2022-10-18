@@ -290,7 +290,7 @@ export default class Progress extends Component {
                       defaultValue="Select Type"
                       className="form-control"
                     >
-                      <option value="0%">Not started</option>
+                      <option defaultvalue="0%">0%</option>
                       <option value="25%">25%</option>
                       <option value="50%">50%</option>
                       <option value="75%">75%</option>
@@ -309,7 +309,7 @@ export default class Progress extends Component {
                       defaultValue="Select Type"
                       className="form-control"
                     >
-                       <option value="0%">Not started</option>
+                     <option defaultvalue="0%">0%</option>
                       <option value="25%">25%</option>
                       <option value="50%">50%</option>
                       <option value="75%">75%</option>
@@ -328,7 +328,7 @@ export default class Progress extends Component {
                       defaultValue="Select Type"
                       className="form-control"
                     >
-                      <option value="0%">Not started</option>
+                     <option defaultvalue="0%">0%</option>
                       <option value="25%">25%</option>
                       <option value="50%">50%</option>
                       <option value="75%">75%</option>
@@ -347,7 +347,7 @@ export default class Progress extends Component {
                       defaultValue="Select Type"
                       className="form-control"
                     >
-                      <option value="0%">Not started</option>
+                      <option defaultvalue="0%">0%</option>
                       <option value="25%">25%</option>
                       <option value="50%">50%</option>
                       <option value="75%">75%</option>
@@ -366,7 +366,7 @@ export default class Progress extends Component {
                       defaultValue="Select Type"
                       className="form-control"
                     >
-                      <option value="0%">Not started</option>
+                      <option defaultvalue="0%">0%</option>
                       <option value="25%">25%</option>
                       <option value="50%">50%</option>
                       <option value="75%">75%</option>
